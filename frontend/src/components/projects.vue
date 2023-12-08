@@ -2,15 +2,14 @@
     <section class="project-section">
       <div class="project-navigation">
         <h1><span class="line"></span>Projets <span class="line"></span></h1>
-        <!-- <h2 v-if="selectedProject" class="project-name">{{ selectedProject.name }}</h2> -->
-        <ul class="project-list">
-          <li v-for="(project, index) in projects" :key="project.id" @click="selectProject(index)">
+        <ul class="project-list" v-if="projects.length">
+          <li v-for="(project, index) in projects" :key="index" @click="selectProject(index)">
           <span :class="project.name === selectedProject.name ? 'highlight' : null">  N°{{ index + 1 }} - {{ project.name }}</span>
           </li>
         </ul>
       </div>
       <div class="project-container">
-        <button @click="previousProject" class="nav-button">Précédent</button>
+        <button @click="previousProject" class="nav-button" v-if="projects.length > 1">Précédent</button>
         <div class="project-content" v-if="selectedProject">
             <div class="project-img">
                 <img v-if="selectedProject && selectedProject.readMeImg && selectedProject.readMeImg.length" :src="selectedProject.readMeImg[0]" alt="" class="projectImg">
@@ -36,12 +35,16 @@
                 </div>
             </div>
         </div>
-        <button @click="nextProject" class="nav-button">Suivant</button>
+        <button v-if="projects.length > 1" @click="nextProject" class="nav-button">Suivant</button>
       </div>
   
       <div class="see-more" v-if="selectedProject">
-    <a :href="selectedProject.html_url" target="_blank" class="see-more-button">VOIR</a>
-  </div>
+         <a :href="selectedProject.html_url" target="_blank" class="see-more-button">VOIR</a>
+       </div>
+    <div class="nav-container-mobile" v-if="projects.length = 1">  
+      <button @click="previousProject" class="nav-button-mobile">Précédent</button>
+      <button @click="nextProject" class="nav-button-mobile">Suivant</button>
+    </div>
     </section>
   </template>
   
@@ -55,21 +58,18 @@
     },
     computed: {
       selectedProject() {
-        return this.projects[this.selectedProjectIndex] || null;
+        return this.projects[this.selectedProjectIndex] || {name: ''};
       },
       projectDuration() {
-    const project = this.selectedProject;
-    if (!project) return '';
-
+      const project = this.selectedProject;
+      if (!project) return '';
     // Extract the years from the dates
     const createdYear = new Date(project.created_at).getFullYear();
     const pushedYear = new Date(project.pushed_at).getFullYear();
-
     // Check if the years are the same, if so, return just one year
     if (createdYear === pushedYear) {
       return `${createdYear}`;
     }
-
     // If the years are different, return the range
     return `${createdYear} - ${pushedYear}`;
   }
@@ -78,38 +78,38 @@
       this.fetchProjects();
     },
     methods: {
-    async fetchProjects() {
-        const username = 'lysianedon'; 
-        let repositories = await fetch(`https://api.github.com/users/${username}/repos`);
-        repositories = await repositories.json();
-        // console.log(repositories)
-        this.projects = repositories.filter(p => p.stargazers_count > 0);
-        for (let i = 0; i < this.projects.length; i++) {
-            this.projects[i].readMeImg = await this.fetchReadmeImages(this.projects[i].name);
-            const name = this.projects[i].name.split('-').join(" ").trim();
-            this.projects[i].name = name;
-            this.projects[i].missions = this.projects[i].description?.split('Réalisations:')[1];
-            this.projects[i].description = this.projects[i].description?.split('Réalisations:')[0];
-            this.projects[i].missions = this.projects[i].missions?.split(',');
-            this.projects[i].stacks = this.projects[i].topics;
+      async fetchProjects() {
+          const username = 'lysianedon'; 
+          let repositories = await fetch(`https://api.github.com/users/${username}/repos`);
+          repositories = await repositories.json();
+          console.log("repositories", repositories)
+          this.projects = repositories.filter(p => +p.stargazers_count > 0);
+          for (let i = 0; i < this.projects.length; i++) {
+              this.projects[i].readMeImg = await this.fetchReadmeImages(this.projects[i].name);
+              const name = this.projects[i].name.split('-').join(" ").trim();
+              this.projects[i].name = name;
+              this.projects[i].missions = this.projects[i].description?.split('Réalisations:')[1];
+              this.projects[i].description = this.projects[i].description?.split('Réalisations:')[0];
+              this.projects[i].missions = this.projects[i].missions?.split(',');
+              this.projects[i].stacks = this.projects[i].topics;
+          }
+          console.log("this.projects", this.projects);
+      },
+      async fetchReadmeImages(repoName) {
+        const username = 'lysianedon'; // Remplacez par votre nom d'utilisateur GitHub
+        let readme = await fetch(`https://api.github.com/repos/${username}/${repoName}/readme`, {
+          headers: { 'Accept': 'application/vnd.github.VERSION.raw' }
+        })
+      readme = await readme.text();
+        // .then(readme => {
+        const imageRegex = /!\[.*?\]\((.*?)\)/g;
+        const urls = [];
+        let match;
+        while ((match = imageRegex.exec(readme)) !== null) {
+          urls.push(match[1]);
         }
-        console.log("this.projects", this.projects);
-  },
-  async fetchReadmeImages(repoName) {
-    const username = 'lysianedon'; // Remplacez par votre nom d'utilisateur GitHub
-    let readme = await fetch(`https://api.github.com/repos/${username}/${repoName}/readme`, {
-      headers: { 'Accept': 'application/vnd.github.VERSION.raw' }
-    })
-   readme = await readme.text();
-    // .then(readme => {
-    const imageRegex = /!\[.*?\]\((.*?)\)/g;
-    const urls = [];
-    let match;
-    while ((match = imageRegex.exec(readme)) !== null) {
-      urls.push(match[1]);
-    }
-    return await Promise.all(urls);
-  },
+        return await Promise.all(urls);
+      },
       selectProject(index) {
         this.selectedProjectIndex = index;
       },
@@ -132,20 +132,9 @@
     min-height:80vh;
   }
   h1 {
-  /* font-size: 11vw; */
-  line-height: 100%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-h1 .line {
-  flex-grow: 1;
-  height: 1px;
-  background: #b3aea6;
-  margin: 0 40px;
-  width: 40vw;
-}
+    line-height: 100%;
+    text-align: start;
+  }
 
 .project-name{
     text-align: left;
@@ -154,6 +143,9 @@ h1 .line {
   line-height: 100%;
   transition: all ease-in 150ms;
   font-family: 'Playfair Display', serif;
+}
+.nav-container-mobile{
+  display: none;
 }
 .project-content{
     display:flex;
@@ -244,7 +236,7 @@ h1 .line {
 .projectImg{
   max-width: 100%;
 }
-.nav-button {
+.nav-button, .nav-button-mobile {
   background: none;
   border: none;
   font-size: 1rem;
@@ -253,7 +245,7 @@ h1 .line {
   border-top: 1px solid black;
   padding-top: 15px;
 }
-  .nav-button:hover{
+  .nav-button:hover, .nav-button-mobile:hover {
     color: #b3aea6;
     border-top: 1px solid #b3aea6;
   }
@@ -314,12 +306,10 @@ h1 .line {
 .see-more-button:hover::before {
   transform: translate(-50%, -50%) scale(1);
 }
-
-  
   @media (max-width: 768px) {
     .project-container {
       flex-direction: row;
-    align-items: flex-start; 
+      align-items: flex-start; 
       width: 100%;
     }
     .nav-button{
@@ -344,9 +334,53 @@ h1 .line {
       border-left: 1px dotted #b3aea6;
       flex: 0 0 55%;
     }
-    .project-details .description{
-
-
+    .nav-container-mobile{
+      display: initial;
+      display: flex;
+      justify-content: end;
+    }
+    .see-more{
+      margin: 2em auto;
+    }
+    .nav-button-mobile {
+      margin: 0 1em;
+      border: 1px solid grey;
+      border-radius: 25px;
+      padding: .5em 2em;
+      }
+      .see-more-button::before {
+      display: none;
+    }
+  }
+  @media (max-width: 767px) {
+    h1{
+      text-align: center;
+    }
+    .project-container {
+    flex-direction: column;
+    width: 100%;
+    }
+    .project-content {
+      flex-direction: column;
+      width: 100%;
+    }
+    .project-details{
+      flex: 0 0 auto; 
+    width: 100% !important; 
+    border-left: none; 
+    margin: 0;
+    padding: 0;
+    }
+    .project-img{
+    flex: auto;
+    width: 100%;
+    flex: 0 0 auto; 
+    }
+    .nav-button-mobile {
+      margin: 0 auto;
+    }
+    .see-more{
+      font-size: .9em;
     }
   }
   </style>

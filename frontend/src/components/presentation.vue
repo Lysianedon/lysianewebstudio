@@ -66,7 +66,7 @@
     }
     h1{
         font-size: 3.5em;
-        text-align: center;
+        /* text-align: center; */
     }
     .presentation h2{
       line-height: 200%;
