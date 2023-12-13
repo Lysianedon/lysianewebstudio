@@ -1,5 +1,5 @@
 <template>
-    <section id="contact">
+    <section>
       <div class="contact-container">
         <h1>Restons en <span>contact.</span> </h1>
         <p>Un projet ou une question en tête ?</p>

@@ -83,7 +83,11 @@
           let repositories = await fetch(`https://api.github.com/users/${username}/repos`);
           repositories = await repositories.json();
           console.log("repositories", repositories)
-          this.projects = repositories.filter(p => +p.stargazers_count > 0);
+          const projects = repositories.filter(p => p.stargazers_count > 0);
+          console.log("projects", projects);
+          this.projects = projects;
+
+          console.log("after filter", this.projects);
           for (let i = 0; i < this.projects.length; i++) {
               this.projects[i].readMeImg = await this.fetchReadmeImages(this.projects[i].name);
               const name = this.projects[i].name.split('-').join(" ").trim();
@@ -94,6 +98,7 @@
               this.projects[i].stacks = this.projects[i].topics;
           }
           console.log("this.projects", this.projects);
+
       },
       async fetchReadmeImages(repoName) {
         const username = 'lysianedon'; // Remplacez par votre nom d'utilisateur GitHub
