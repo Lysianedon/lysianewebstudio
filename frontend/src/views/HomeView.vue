@@ -1,6 +1,6 @@
 <template>
   <div class="homeview">
-    <section class="landing-page">
+    <section class="landing-page" id="home">
       <header>
         <div class="portfolio-block">
           <div class="playfair-font">Portfolio</div>
@@ -12,16 +12,16 @@
       <h2 class="welcome">Hello, welcome to</h2>
     </section>
     <Navbar class="navbar"/>
-  <div class="presentation">
+  <div id="presentation" class="presentation">
     <Presentation/>
   </div>
-    <div class="technologies">
+    <div id="technologies" class="technologies">
       <Technologies/>
     </div>
-    <div class="projets">
+    <div id="projects" class="projets">
       <Projects/>
     </div>
-    <div class="contact">
+    <div id="contact" class="contact">
       <ContactForm/>
     </div>
     <div class="footer">
@@ -69,16 +69,18 @@ export default {
 header{
   display: flex;
   justify-content: space-between;
-  width: 90vw;
+  width: 93vw;
   margin: 4vh auto 0 auto;
   font-size: 20px;
+  /* border: 2px solid grey; */
 }
 .navbar{
   position: sticky !important;
   top: 0;
 }
 .portfolio-block{
-  padding: 1vh 0 0 0;
+  padding: 12px 0 0 0;
+  margin: 0 5px 0 0;
 }
 .year{
   text-align: end;
@@ -87,7 +89,7 @@ header{
 }
 .line{
   border-right: 1px solid black;
-  width: 83.5vw;
+  width: 86.5vw;
   margin-left: auto;
   height: 1px;
   background-color: black;
@@ -114,13 +116,25 @@ header{
 /* ------------ */
 
 @media(max-width: 768px){
-  .navbar, .landing-page{
-    display: none;
+  header{
+  width: 95%;
+  font-size: 18px;
   }
+.line{
+  border-right: 1px solid black;
+  width: 100%;
+  margin-left: 0;
+}
 .presentation {
   font-size: 1em;
   width: 95vw;
-  margin: 10vh 0 15vh 0;
+  margin: 10vh 0 0 0;
+}
+.technologies{
+  margin: 0;
+}
+.projets{
+  margin: 0vh 0 13vh 0;
 }
 }
 
