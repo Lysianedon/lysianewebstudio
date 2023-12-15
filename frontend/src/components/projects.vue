@@ -2,14 +2,14 @@
     <section class="project-section">
       <div class="project-navigation">
         <h1><span class="line"></span>Projets <span class="line"></span></h1>
-        <ul class="project-list" v-if="projects.length">
+        <ul class="project-list" v-if="projects && projects.length">
           <li v-for="(project, index) in projects" :key="index" @click="selectProject(index)">
           <span :class="project.name === selectedProject.name ? 'highlight' : null">  N°{{ index + 1 }} - {{ project.name }}</span>
           </li>
         </ul>
       </div>
       <div class="project-container">
-        <button @click="previousProject" class="nav-button" v-if="projects.length > 1">Précédent</button>
+        <button @click="previousProject" class="nav-button" v-if="projects && projects.length > 1">Précédent</button>
         <div class="project-content" v-if="selectedProject">
             <div class="project-img">
                 <img v-if="selectedProject && selectedProject.readMeImg && selectedProject.readMeImg.length" :src="selectedProject.readMeImg[0]" alt="" class="projectImg">
@@ -35,13 +35,13 @@
                 </div>
             </div>
         </div>
-        <button v-if="projects.length > 1" @click="nextProject" class="nav-button">Suivant</button>
+        <button v-if="projects && projects.length > 1" @click="nextProject" class="nav-button">Suivant</button>
       </div>
   
       <div class="see-more" v-if="selectedProject">
          <a :href="selectedProject.html_url" target="_blank" class="see-more-button">VOIR</a>
        </div>
-    <div class="nav-container-mobile" v-if="projects.length = 1">  
+    <div class="nav-container-mobile" v-if="projects && projects.length > 1">  
       <button @click="previousProject" class="nav-button-mobile">Précédent</button>
       <button @click="nextProject" class="nav-button-mobile">Suivant</button>
     </div>
@@ -49,16 +49,18 @@
   </template>
   
   <script>
+  import axios from "axios";
+
   export default {
     data() {
       return {
-        projects: [], 
+        projects: null, 
         selectedProjectIndex: 0,
       };
     },
     computed: {
       selectedProject() {
-        return this.projects[this.selectedProjectIndex] || {name: ''};
+        return this.projects && this.projects[this.selectedProjectIndex] || {name: ''};
       },
       projectDuration() {
       const project = this.selectedProject;
@@ -74,19 +76,21 @@
     return `${createdYear} - ${pushedYear}`;
   }
     },
-    mounted() {
+     mounted() {
       this.fetchProjects();
     },
     methods: {
       async fetchProjects() {
+
+        try {
           const username = 'lysianedon'; 
-          let repositories = await fetch(`https://api.github.com/users/${username}/repos`);
-          repositories = await repositories.json();
-          console.log("repositories", repositories)
-          const projects = repositories.filter(p => p.stargazers_count > 0);
+          const repositories = await axios.get(`https://api.github.com/users/${username}/repos`);
+          this.projects = repositories.data;
+          console.log("repositories", repositories);
+
+          const projects = repositories.data.filter(p => p.stargazers_count > 0 && p.name !== 'lysianewebstudio');
           console.log("projects", projects);
           this.projects = projects;
-
           console.log("after filter", this.projects);
           for (let i = 0; i < this.projects.length; i++) {
               this.projects[i].readMeImg = await this.fetchReadmeImages(this.projects[i].name);
@@ -98,7 +102,10 @@
               this.projects[i].stacks = this.projects[i].topics;
           }
           console.log("this.projects", this.projects);
-
+          
+        } catch (error) {
+          console.error('Error fetching projects:', error);
+        }    
       },
       async fetchReadmeImages(repoName) {
         const username = 'lysianedon'; // Remplacez par votre nom d'utilisateur GitHub
@@ -187,6 +194,7 @@
     width: 85vw;
     max-width: 1550px;
     margin: auto;
+
 }
 
 .project-content {
@@ -206,6 +214,7 @@
     flex-direction: column;
     width: 50%;
     font-family: 'Playfair Display', serif;
+    /* border-left: 1px dotted #898989; */
 }
 .project-container .project-details .description{
   margin: 0 auto;
