@@ -4,8 +4,6 @@
       <header>
         <div class="portfolio-block">
           <div class="playfair-font">Portfolio</div>
-          <!-- <div>Web</div>
-          <div>Development</div> -->
         </div>
         <div class="year"><span>20</span><div class="line"></div><span>23</span></div>
       </header>
