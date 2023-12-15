@@ -1,18 +1,14 @@
 <template>
   <footer class="footer">
     <nav class="footer-nav">
-      <div class="footer-menu-group">
         <ul class="footer-menu">
           <li><a href="#projects">Projets</a></li>
           <li><a href="#services">Services</a></li>
         </ul>
-      </div>
-      <div class="footer-menu-group">
         <ul class="footer-menu">
           <li><a href="#contact">Contact</a></li>
           <li><a href="#social-media">Réseaux sociaux</a></li>
         </ul>
-      </div>
     </nav>
     <div class="divider"></div>
     <div class="footer-copy">
@@ -35,16 +31,14 @@
   }
 nav {
     max-width: 2000px;
+    margin: auto;
     display: flex; 
     justify-content: space-around; 
-    margin: auto;
-    width: 90%;
-    padding: 0vh 0 1vh 0;
-  }
-  .footer-menu-group{
     width: 100%;
+    padding: 0vh 0px 1vh 0;
   }
   .footer-menu {
+    width: 100%;
     list-style: none;
     max-width: 960px; 
     margin: auto;
@@ -56,6 +50,7 @@ nav {
     color: #fff;
     text-decoration: none;
     line-height: 150%;
+    font-size: 14px;
   }
   .divider{
     width: 100%;
