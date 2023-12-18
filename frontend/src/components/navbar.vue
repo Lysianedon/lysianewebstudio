@@ -50,7 +50,6 @@
         const titleDesktop = this.$el.querySelector('.title-desktop');
         const spans = this.$el.querySelectorAll('h1 span');
         const spansMobile = this.$el.querySelectorAll('.title-mobile span');
-        console.log("spansMobile", spansMobile);
 
       const titleMobile = this.$el.querySelector('.title-mobile');
 
