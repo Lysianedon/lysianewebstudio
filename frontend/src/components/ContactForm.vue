@@ -18,14 +18,18 @@
             <input type="email" id="email" v-model="form.email">
           </div>
           <div class="form-group">
-            <label for="phone">Numéro de téléphone*</label>
-            <input type="tel" id="phone" v-model="form.phone">
+            <label for="phone">Numéro de téléphone</label>
+            <input type="tel" id="phone" v-model="form.phoneNumber">
+          </div>
+          <div class="form-group">
+            <label for="subject">Objet</label>
+            <input type="text" id="subject" v-model="form.subject">
           </div>
           <div class="form-group">
             <label for="message">Message*</label>
             <textarea id="message" v-model="form.message"></textarea>
           </div>
-          <button type="submit" class="submit-btn">Envoyer</button>
+          <button type="submit" :class="valid ? 'submit-btn' : 'disabled-btn'" :disabled="!valid" @click="valid ? submitForm : null">Envoyer</button>
         </form>
       </div>
       <div class="social-links">
@@ -57,23 +61,50 @@
   </template>
   
   <script>
+  import axios from 'axios';
   export default {
     data() {
       return {
         form: {
-          name: '',
-          company: '',
-          email: '',
-          phone: '',
-          message: ''
+          name: null,
+          company: null,
+          email: null,
+          phoneNumber: null,
+          subject: "Demande d'informations",
+          message: null,
         }
       };
     },
-    methods: {
-      submitForm() {
-        console.log(this.form);
+    computed: {
+      valid() {
+        const { name, email, phoneNumber, subject, message } = this.form;
+
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        const phoneRegex = /^\+?\d{10,15}$/;
+
+        const isNameValid = name?.trim() !== '';
+        const isEmailValid = email && emailRegex.test(email);
+        const isPhoneValid = phoneNumber ? phoneRegex.test(phoneNumber) : true; 
+        const isMessageValid = message && message.trim() !== '';
+        const isSubjectValid = subject ? subject.trim() !== '' : true;
+
+        return isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid;
       }
+  },
+  methods: {
+  async submitForm() {
+    if (!this.valid) return;
+    try {
+      const response = await axios.post('/send-email', this.form);
+      console.log(response.data);
+      this.form.message = null;
+    } catch (error) {
+      console.error('Failed to send email:', error);
     }
+  }
+},
+
+
   };
   </script>
   
@@ -131,7 +162,7 @@ form{
     border-bottom-color: #908f8f;
   }
   
-  .submit-btn {
+  .submit-btn, .disabled-btn {
     display: block;
     width: 100%;
     padding: 1rem 0;
@@ -147,6 +178,9 @@ form{
   }
   .submit-btn:hover {
     background-color: #555;
+  }
+  .disabled-btn{
+    background-color: #737171;
   }
 
   /* SOCIAL LINKS */
