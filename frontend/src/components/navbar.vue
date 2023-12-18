@@ -65,7 +65,6 @@
           scrub: 1,
         },
       });
-
       tl.fromTo(
         titleDesktop,
         { fontSize: '6em',width: '100%', y: '-115%', position: 'absolute', left: '0', transform: 'translate(-15%, 55%)' },

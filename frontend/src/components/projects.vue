@@ -86,12 +86,8 @@
           const username = 'lysianedon'; 
           const repositories = await axios.get(`https://api.github.com/users/${username}/repos`);
           this.projects = repositories.data;
-          console.log("repositories", repositories);
-
           const projects = repositories.data.filter(p => p.stargazers_count > 0 && p.name !== 'lysianewebstudio');
-          console.log("projects", projects);
           this.projects = projects;
-          console.log("after filter", this.projects);
           for (let i = 0; i < this.projects.length; i++) {
               this.projects[i].readMeImg = await this.fetchReadmeImages(this.projects[i].name);
               const name = this.projects[i].name.split('-').join(" ").trim();
@@ -101,19 +97,17 @@
               this.projects[i].missions = this.projects[i].missions?.split(',');
               this.projects[i].stacks = this.projects[i].topics;
           }
-          console.log("this.projects", this.projects);
           
         } catch (error) {
           console.error('Error fetching projects:', error);
         }    
       },
       async fetchReadmeImages(repoName) {
-        const username = 'lysianedon'; // Remplacez par votre nom d'utilisateur GitHub
+        const username = 'lysianedon'; 
         let readme = await fetch(`https://api.github.com/repos/${username}/${repoName}/readme`, {
           headers: { 'Accept': 'application/vnd.github.VERSION.raw' }
         })
       readme = await readme.text();
-        // .then(readme => {
         const imageRegex = /!\[.*?\]\((.*?)\)/g;
         const urls = [];
         let match;
