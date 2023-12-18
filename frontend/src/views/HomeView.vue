@@ -30,7 +30,7 @@
 
 <script>
 import Navbar from '../components/navbar.vue';
-import Presentation from '../components/Presentation.vue';
+import Presentation from '../components/presentation.vue';
 import ContactForm from '../components/contactForm.vue';
 import Technologies from '../components/technologies.vue';
 import Projects from '../components/projects.vue';
@@ -43,15 +43,6 @@ export default {
     Technologies,
     Projects,
     Footer,
-  },
-  data() {
-    return {
-     
-    }
-  },
-  computed: {
-  },
-  mounted() {
   },
 }
 </script>
