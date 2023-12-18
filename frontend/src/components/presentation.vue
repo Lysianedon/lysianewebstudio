@@ -7,14 +7,7 @@
       </div>
     </section>
   </template>
-  
-  <script>
-  export default {
-    name: 'Presentation',
 
-  }
-  </script>
-  
   <style scoped>
   section{
     min-height: 70vh;
