@@ -260,7 +260,6 @@ form{
   width: 100%;
   margin: 0 auto 5vh auto;
 }
-
 .social-links .line {
   margin: 0 10px;
   width: 50px;
@@ -270,7 +269,6 @@ form{
 .icons {
   margin-top: 20px auto;
 }
-
 .icon-container {
   margin: 5px 0;
 }
@@ -280,7 +278,6 @@ form{
 }
 }
 @media(max-width: 425px) {
-
   .social-links .icons{
     display: none;
   }
