@@ -5,7 +5,7 @@
           <li class="">
             <a href="#home">Accueil</a>
           </li>
-          <li class="menu-mobile">
+          <li class="menu-mobile" @click="showNavMobile = !showNavMobile">
             <a>Menu</a>
           </li>
           <li>
@@ -16,6 +16,7 @@
           </li>
         </div>
         <h1 class="title-desktop"><span>LYSIANE'S</span><span> WEB</span><span> STUDIO</span></h1>
+        <h1 class="title-tablet"><span>LYSIANE'S</span><span> WEB</span><span> STUDIO</span></h1>
         <h1 class="title-mobile"><span>LYSIANE'S</span><span> WEB</span><span> STUDIO</span></h1>
         <!-- <img src="../assets/logo-1-small.png" alt="logo" class="logo" /> -->
         <div class="part-two">
@@ -36,11 +37,33 @@
           </li>
         </div>
       </ul>
+      <header id="header" class="navbar-wrapper" :class="{ 'open-nav': showNavMobile }">
+            <div class="nav-bar nav-mobile" :style="{ height: showNavMobile ? '100vh' : '1px' }">
+                <ul>
+                    <li>
+                        <a href="#home" class="white">Accueil</a>
+                        <a href="#projects">Projets</a>
+                        <a href="#technologies">Technologies</a>
+                        <a href="#projects">Projets</a>
+                        <a href="#presentation">A propos</a>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+                
+            </div>
+            <!-- <button type="" class="menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></button> -->
+        </header> 
     </nav>
+    
   </template>
   
   <script>
   export default {
+    data() {
+      return {
+        showNavMobile: false,
+      }
+    },
     mounted() {
     this.setTitleAnimation();
     window.addEventListener('resize', this.setTitleAnimation);
@@ -49,9 +72,9 @@
       setTitleAnimation(){
         const titleDesktop = this.$el.querySelector('.title-desktop');
         const spans = this.$el.querySelectorAll('h1 span');
-        const spansMobile = this.$el.querySelectorAll('.title-mobile span');
+        const spansMobile = this.$el.querySelectorAll('.title-tablet span');
 
-      const titleMobile = this.$el.querySelector('.title-mobile');
+      const titleMobile = this.$el.querySelector('.title-tablet');
 
       if (this.tl) {
         this.tl.kill();
@@ -129,8 +152,77 @@
   };
   </script>
   
-  
   <style scoped>
+  /* ------ NAV MOBILE -------- */
+header{
+    display: none;
+    position: fixed;
+    height: 1px;
+    top: 0;
+}
+.navbar-wrapper {
+    /* display: table; */
+    display: none; 
+    width: 100%;
+    position: fixed;
+    left: -100%;
+    background-color: #000000d9;
+    transition: left 0.5s;
+    height: 100vh;
+}
+.navbar-wrapper.open-nav {
+    left: 0; 
+  }
+
+.navbar-wrapper .nav-bar ul li {
+    display: block;
+}
+
+.navbar-wrapper .nav-bar ul {
+    padding: 0;
+    display: table;
+    text-align: center;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-wrapper .nav-bar ul li a {
+    font-size: 18px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    padding: 18px;
+    text-transform: uppercase;
+}
+
+.nav-bar {
+    text-align: center;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items: center;
+    position: relative;
+}
+/* NAV LINKS TEXT DECORATION  */
+header .nav-bar ul li a::before {
+position: absolute;
+content: "";
+display: block;
+width: 100%;
+height: 1px;
+bottom: -35%;
+left: 0;
+background-color: #000;
+transform: scaleX(0);
+transition: transform 0.2s ease;
+}
+
+/* TITLE */
 h1 {
   margin: auto;
   display: flex;
@@ -139,9 +231,8 @@ h1 {
   color: black;
   flex-grow: 1;
   transition: all 0.1s ease; 
-  /* border: 1px solid black; */
   }
-  .title-mobile{
+  .title-tablet, .title-mobile{
     display:none;
   }
 
@@ -201,6 +292,9 @@ h1 {
   }
 
   @media(max-width: 1250px) {
+    .navbar-wrapper {
+    display: table;
+    }
     nav ul div li  {
     display: none;
   }
@@ -216,24 +310,90 @@ h1 {
     bottom: 40px;
     transform: translate(10%, 25%);
   }
+   /* -NAVBAR MOBILE - */
+   header{
+        display: initial !important;
+    }
+    /* button.menu-btn {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        right: 0;
+        background-color: unset;
+        border: 0;
+        font-size: 1.5rem;
+        display:block;
+        padding: 5px 13px;
+        color: rgb(58, 56, 56);
+        outline: none;
+        margin: 5vh 3vw 0 0;
+    }  */
+    .navbar-wrapper .nav-bar {
+        left: -1250px;
+        background-color: #000000d9;
+        transition: 1s;
+        height: 100vh;
+
+    }
+	.navbar-wrapper.open-nav .nav-bar{
+	    left: 0;
+	    width: 100%;
+	    transition: left 0.5s;
+	    height: 100%;
+	}
+
+	.navbar-wrapper .nav-bar ul li a {
+	    display: block;
+	    color: #f5efcb;
+        width: 100vw;
+	}
+    .navbar-wrapper .nav-bar ul li a:hover{
+        background-color: rgba(138, 137, 137, 0.613);
+    }
+
+	.navbar-wrapper.open-nav button.menu-btn i:before {
+	    content: '\f00d ';
+	}
+	.navbar-wrapper.open-nav button.menu-btn i:before {
+	    content: '\f00d ';
+	}
   }
 @media (max-width: 820px) {
-  .title-mobile{
+  .title-tablet{
     display: flex;
-    /* border: 1px solid green; */
   }
   .title-desktop{
     display: none;
   }
 }
 @media (max-width: 480px) {
+  nav {
+    bottom: 0;
+    padding: 5px;
+    padding-top: 20px;
+  }
   nav ul .part-two .lastlink{
     display: none;
+  }
+  .title-tablet{
+    display: none;
+  }
+  .title-mobile{
+    display: flex;
+    font-size: 1.1em;
+    letter-spacing: 1.5px;
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+  }
+  .title-mobile span{
+    margin: 0 2vw !important;
   }
   .menu-mobile{
     transform: translate(10%, 105%);
     font-size: 15px;
   }
+
 }
   </style>
   
