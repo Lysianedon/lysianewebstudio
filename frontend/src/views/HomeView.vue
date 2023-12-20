@@ -7,7 +7,7 @@
         </div>
         <div class="year"><span>20</span><div class="line"></div><span>23</span></div>
       </header>
-      <h2 class="welcome">Hello, welcome to</h2>
+      <h2 class="welcome">Hello, welcome to <span class="tagline-mobile"> my web studio</span></h2>
     </section>
     <Navbar class="navbar"/>
   <div id="presentation" class="presentation">
@@ -67,6 +67,9 @@ header{
   position: sticky !important;
   top: 0;
 }
+.tagline-mobile{
+  display: none;
+}
 .portfolio-block{
   padding: 12px 0 0 0;
   margin: 0 5px 0 0;
@@ -125,6 +128,19 @@ header{
 .projets{
   margin: 0vh 0 13vh 0;
 }
+}
+
+@media(max-width: 480px) {
+
+  .welcome{
+    font-size: 1.2em;
+  }
+  .tagline-mobile{
+    display: block;
+    margin: 2vh auto;
+    line-height: 150%;
+    text-decoration:wavy;
+  }
 }
 
 </style>
