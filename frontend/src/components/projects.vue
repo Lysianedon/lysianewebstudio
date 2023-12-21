@@ -19,7 +19,7 @@
                 <p>{{ projectDuration }}</p>
                 <div class="technical-infos">
                     <div>
-                        <h4>Réalisations:</h4>
+                        <h4>Réalisations</h4>
                         <ul>
                             <li v-for="(mission, index) in selectedProject.missions" :key="index">{{ mission }}</li>
          
@@ -27,7 +27,7 @@
                     </div>
                     <div class="divider"></div>
                     <div>
-                        <h4>Technologies utilisées:</h4>
+                        <h4>Technologies utilisées</h4>
                         <ul>
                             <li v-for="(stack, index) in selectedProject.stacks" :key="index">{{ stack }}</li>
                         </ul>
