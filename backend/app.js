@@ -4,6 +4,10 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 const path = require('path');
 const sgMail = require('@sendgrid/mail');
+const cronJob = require("./cron/cron");
+
+cronJob.start();
+
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 app.use(express.json());
@@ -43,8 +47,9 @@ app.post("/send-email", async (req, res) => {
 })
 
 app.get("/health", (req, res) => {
-    res.json("OK");
+    res.status(200).json("OK");
 })
+
 app.get("*", (req, res) => {
     res.status(404).json("Error: endpoint not found.");
 })
