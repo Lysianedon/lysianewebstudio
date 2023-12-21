@@ -1,5 +1,6 @@
 <template>
     <nav>
+      <div class="absolute-elem"></div>
       <ul>
         <div class="part-one">
           <li class="">
@@ -18,7 +19,6 @@
         <h1 class="title-desktop"><span>LYSIANE'S</span><span> WEB</span><span> STUDIO</span></h1>
         <h1 class="title-tablet"><span>LYSIANE'S</span><span> WEB</span><span> STUDIO</span></h1>
         <h1 class="title-mobile"><span>LYSIANE'S</span><span> WEB</span><span> STUDIO</span></h1>
-        <!-- <img src="../assets/logo-1-small.png" alt="logo" class="logo" /> -->
         <div class="part-two">
           <li>
             <a href="#presentation">A propos</a>
@@ -27,20 +27,13 @@
             <a href="#contact">Contact</a>
           </li>
           <li class="lastlink link-mobile">
-            <span class="bold">
-              FR
-            </span>
-            |
-            <span             
-              >EN</span
-            >
           </li>
         </div>
       </ul>
       <header id="header" class="navbar-wrapper" :class="{ 'open-nav': showNavMobile }">
             <div class="nav-bar nav-mobile" :style="{ height: showNavMobile ? '100vh' : '1px' }">
                 <ul>
-                    <li>
+                    <li @click="showNavMobile = false">
                         <a href="#home" class="white">Accueil</a>
                         <a href="#projects">Projets</a>
                         <a href="#technologies">Technologies</a>
@@ -153,16 +146,16 @@
   </script>
   
   <style scoped>
+  .absolute-elem {
+    position: relative;
+  }
   /* ------ NAV MOBILE -------- */
-header{
+
+header {
     display: none;
-    position: fixed;
-    height: 1px;
+    z-index: 100;
     top: 0;
-}
-.navbar-wrapper {
     /* display: table; */
-    display: none; 
     width: 100%;
     position: fixed;
     left: -100%;
@@ -170,15 +163,18 @@ header{
     transition: left 0.5s;
     height: 100vh;
 }
-.navbar-wrapper.open-nav {
-    left: 0; 
-  }
+header.open-nav {
+  left: 0; 
+  position: absolute;
+  top: -100vh;
+  background-color: #9d289f72;
+}
 
-.navbar-wrapper .nav-bar ul li {
+header .nav-bar ul li {
     display: block;
 }
 
-.navbar-wrapper .nav-bar ul {
+header .nav-bar ul {
     padding: 0;
     display: table;
     text-align: center;
@@ -190,7 +186,7 @@ header{
     padding: 0;
 }
 
-.navbar-wrapper .nav-bar ul li a {
+header .nav-bar ul li a {
     font-size: 18px;
     display: inline-block;
     text-align: center;
@@ -198,15 +194,17 @@ header{
     color: #000;
     padding: 18px;
     text-transform: uppercase;
+    
 }
-
 .nav-bar {
     text-align: center;
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
     align-items: center;
-    position: relative;
+    position: absolute;
+    top: -100vh !important;
+    height: 100vh !important;
 }
 /* NAV LINKS TEXT DECORATION  */
 header .nav-bar ul li a::before {
@@ -221,6 +219,58 @@ background-color: #000;
 transform: scaleX(0);
 transition: transform 0.2s ease;
 }
+
+  /* -NAVBAR MOBILE - */
+  header{
+        display: initial !important;
+    }
+    /* button.menu-btn {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        right: 0;
+        background-color: unset;
+        border: 0;
+        font-size: 1.5rem;
+        display:block;
+        padding: 5px 13px;
+        color: rgb(58, 56, 56);
+        outline: none;
+        margin: 5vh 3vw 0 0;
+    }  */
+    header .nav-bar {
+        left: -1250px;
+        background-color: #000000d9;
+        transition: 1s;
+        height: 100vh;
+        position: fixed;
+        top: -100vh;
+        /* background-color: #9d289f72; */
+
+    }
+	header.open-nav .nav-bar{
+	    left: 0;
+      top:0;
+	    width: 100%;
+	    transition: left 0.5s;
+	    height: 100%;
+	}
+
+	header .nav-bar ul li a {
+	    display: block;
+	    color: #f5efcb;
+        width: 100vw;
+	}
+    header .nav-bar ul li a:hover{
+        background-color: rgba(138, 137, 137, 0.613);
+    }
+
+	header.open-nav button.menu-btn i:before {
+	    content: '\f00d ';
+	}
+	header.open-nav button.menu-btn i:before {
+	    content: '\f00d ';
+	}
 
 /* TITLE */
 h1 {
@@ -292,17 +342,11 @@ h1 {
   }
 
   @media(max-width: 1250px) {
-    .navbar-wrapper {
-    display: table;
-    }
     nav ul div li  {
     display: none;
   }
   nav ul div .lastlink,  .menu-mobile {
     display: block;
-  }
-  nav{
-    position: relative;
   }
   .menu-mobile {
     position: absolute;
@@ -310,53 +354,7 @@ h1 {
     bottom: 40px;
     transform: translate(10%, 25%);
   }
-   /* -NAVBAR MOBILE - */
-   header{
-        display: initial !important;
-    }
-    /* button.menu-btn {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        right: 0;
-        background-color: unset;
-        border: 0;
-        font-size: 1.5rem;
-        display:block;
-        padding: 5px 13px;
-        color: rgb(58, 56, 56);
-        outline: none;
-        margin: 5vh 3vw 0 0;
-    }  */
-    .navbar-wrapper .nav-bar {
-        left: -1250px;
-        background-color: #000000d9;
-        transition: 1s;
-        height: 100vh;
-
-    }
-	.navbar-wrapper.open-nav .nav-bar{
-	    left: 0;
-	    width: 100%;
-	    transition: left 0.5s;
-	    height: 100%;
-	}
-
-	.navbar-wrapper .nav-bar ul li a {
-	    display: block;
-	    color: #f5efcb;
-        width: 100vw;
-	}
-    .navbar-wrapper .nav-bar ul li a:hover{
-        background-color: rgba(138, 137, 137, 0.613);
-    }
-
-	.navbar-wrapper.open-nav button.menu-btn i:before {
-	    content: '\f00d ';
-	}
-	.navbar-wrapper.open-nav button.menu-btn i:before {
-	    content: '\f00d ';
-	}
+ 
   }
 @media (max-width: 820px) {
   .title-tablet{
