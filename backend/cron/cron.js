@@ -5,7 +5,7 @@ dotenv.config({ path: "./config.env" });
 const backendUrl = process.env.BACKEND_HEALTH_URL;
 const {sendNotificationEmail} = require("../utils/emailService");
 
-const cronJob = new CronJob('*/14 * * * *', async function() {
+const cronJob = new CronJob('*/1 * * * *', async function() {
     console.log('Pinging server to keep it awake...');
     try {
         const response = await axios.get(backendUrl);
@@ -20,6 +20,7 @@ const cronJob = new CronJob('*/14 * * * *', async function() {
                 <p><strong>Message: </strong>${error.message}</p>
                 `
             }
+            console.log('Sending failure notification email...');
             await sendNotificationEmail( notificationEmail.subject, notificationEmail.content);
         }
     } catch (error) {
@@ -32,6 +33,7 @@ const cronJob = new CronJob('*/14 * * * *', async function() {
             <p><strong>Message: </strong>${error.message}</p>
             `
         }
+        console.log('Sending failure notification email...');
         await sendNotificationEmail(notificationEmail.subject, notificationEmail.content);
     }
 });
