@@ -5,6 +5,7 @@ dotenv.config({ path: "./config.env" });
 const backendUrl = process.env.BACKEND_HEALTH_URL;
 const {sendNotificationEmail} = require("../utils/emailService");
 
+
 const cronJob = new CronJob('*/14 * * * *', async function() {
     console.log('Pinging server to keep it awake...');
     try {
