@@ -6,6 +6,7 @@ const path = require('path');
 const sgMail = require('@sendgrid/mail');
 const cronJob = require("./cron/cron");
 
+
 cronJob.start();
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
