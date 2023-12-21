@@ -7,7 +7,7 @@
         <form @submit.prevent="submitForm">
           <div class="form-group">
             <label for="name">Nom et prénom*</label>
-            <input type="text" id="name" v-model="form.name">
+            <input type="text" id="name" v-model="form.name" @click="callServer">
           </div>
           <div class="form-group">
             <label for="company">Entreprise</label>
@@ -70,7 +70,7 @@
           company: null,
           email: null,
           phoneNumber: null,
-          subject: "Demande d'informations",
+          subject: "Demande de rdv",
           message: null,
         }
       };
@@ -91,17 +91,22 @@
         return isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid;
       }
   },
+  async mounted() {
+    this.callServer();
+  }, 
   methods: {
-  async submitForm() {
-    if (!this.valid) return;
-    try {
-      const response = await axios.post('/send-email', this.form);
-      console.log(response.data);
-      this.form.message = null;
-    } catch (error) {
-      console.error('Failed to send email:', error);
+    async callServer() {
+      await axios.get('/health');
+    },
+    async submitForm() {
+      if (!this.valid) return;
+      try {
+        await axios.post('/send-email', this.form);
+        this.form.message = null;
+      } catch (error) {
+        console.error('Failed to send email:', error);
+      }
     }
-  }
 },
 
 
