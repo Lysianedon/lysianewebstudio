@@ -82,7 +82,7 @@
       tl.fromTo(
         titleDesktop,
         { fontSize: '6em',width: '100%', y: '-115%', position: 'absolute', left: '0', transform: 'translate(-15%, 55%)' },
-        { fontSize: 'clamp(13px, 1.5vw, 500px)', width: '25%', left:'40vw', y:'-3', position: 'intial', duration: 1, letterSpacing: '6px', transform: 'translate(-1%, 80%)' }
+        { fontSize: 'clamp(13px, 1.5vw, 500px)', width: '25%', left:'40vw', y:'-13', position: 'intial', duration: 1, letterSpacing: '6px', transform: 'translate(-1%, 80%)' }
       );
 
       if (this.tlSpans) {
@@ -117,7 +117,7 @@
       tlMobile.fromTo(
         titleMobile,
         { fontSize: '9vw',width: '100vw', maxWidth: '100vw', y: '-165', position: 'absolute', left: '0', transform: 'translate(-15%, 55%)' },
-        { fontSize: 'clamp(13px, 1.5vw, 100px)', width: '50%', left:'28%', y: '1', position: 'intial', duration: 1, letterSpacing: '3px' } 
+        { fontSize: 'clamp(13px, 1.5vw, 100px)', width: '50%', left:'28%', y: '-10', position: 'intial', duration: 1, letterSpacing: '3px' } 
       );
 
       if (this.tlSpansMobile) {
@@ -293,7 +293,8 @@ h1 {
   .menu-mobile {
     position: absolute;
     left: 3%;
-    bottom: 40px;
+    cursor: pointer;
+    bottom: 35px;
     transform: translate(10%, 25%);
   }
   header {
@@ -323,7 +324,7 @@ h1 {
   }
   .title-mobile{
     display: flex;
-    font-size: 1.1em;
+    font-size: .9em;
     letter-spacing: 1.5px;
     position: absolute;
     bottom: 15px;
@@ -335,6 +336,7 @@ h1 {
   .menu-mobile{
     transform: translate(10%, 105%);
     font-size: 15px;
+    line-height: 120%;
   }
 
 }
