@@ -31,6 +31,7 @@
         </div>
       </ul>
       <header id="header" class="navbar-wrapper" :class="{ 'open-nav': showNavMobile }">
+        <button class="close-btn" @click="showNavMobile = false">FERMER</button>
             <div class="nav-bar nav-mobile" :style="{ height: showNavMobile ? '100vh' : '1px' }">
                 <ul>
                     <li @click="showNavMobile = false">
@@ -44,7 +45,6 @@
                 </ul>
                 
             </div>
-            <!-- <button type="" class="menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></button> -->
         </header> 
     </nav>
     
@@ -147,33 +147,50 @@
   
   <style scoped>
   .absolute-elem {
-    position: relative;
+    position: relative !important;
   }
   /* ------ NAV MOBILE -------- */
 
 header {
     display: none;
-    z-index: 100;
+    z-index: -100;
     top: 0;
-    /* display: table; */
     width: 100%;
     position: fixed;
     left: -100%;
-    background-color: #000000d9;
+    /* top: -100vh; */
+    top: 0;
+    background-color: #000000e7;
     transition: left 0.5s;
     height: 100vh;
 }
 header.open-nav {
   left: 0; 
   position: absolute;
-  top: -100vh;
-  background-color: #9d289f72;
+  /* test */
+  position: fixed;
+  top: 0;
 }
-
-header .nav-bar ul li {
-    display: block;
+header .close-btn{
+  position: absolute;
+  right: 2vw;
+  top: 2vh;
+  color: #f5efcb;
+  z-index: 1000;
+  background-color: transparent;
+  border: none;
+  font-size: 1.3em;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
 }
-
+.nav-bar {
+    text-align: center;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items: center;
+}
 header .nav-bar ul {
     padding: 0;
     display: table;
@@ -185,92 +202,19 @@ header .nav-bar ul {
     margin: 0;
     padding: 0;
 }
-
-header .nav-bar ul li a {
-    font-size: 18px;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    color: #000;
-    padding: 18px;
-    text-transform: uppercase;
-    
-}
-.nav-bar {
-    text-align: center;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    align-items: center;
-    position: absolute;
-    top: -100vh !important;
-    height: 100vh !important;
-}
 /* NAV LINKS TEXT DECORATION  */
-header .nav-bar ul li a::before {
-position: absolute;
-content: "";
-display: block;
-width: 100%;
-height: 1px;
-bottom: -35%;
-left: 0;
-background-color: #000;
-transform: scaleX(0);
-transition: transform 0.2s ease;
-}
-
-  /* -NAVBAR MOBILE - */
-  header{
-        display: initial !important;
-    }
-    /* button.menu-btn {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        right: 0;
-        background-color: unset;
-        border: 0;
-        font-size: 1.5rem;
-        display:block;
-        padding: 5px 13px;
-        color: rgb(58, 56, 56);
-        outline: none;
-        margin: 5vh 3vw 0 0;
-    }  */
-    header .nav-bar {
-        left: -1250px;
-        background-color: #000000d9;
-        transition: 1s;
-        height: 100vh;
-        position: fixed;
-        top: -100vh;
-        /* background-color: #9d289f72; */
-
-    }
-	header.open-nav .nav-bar{
-	    left: 0;
-      top:0;
-	    width: 100%;
-	    transition: left 0.5s;
-	    height: 100%;
-	}
-
 	header .nav-bar ul li a {
-	    display: block;
-	    color: #f5efcb;
-        width: 100vw;
+    display: block;
+    color: #f5efcb;
+    width: 100vw;
+    letter-spacing: 2px;
+    font-size: 23px;
+    padding: 20px;
+    text-transform: uppercase;
 	}
-    header .nav-bar ul li a:hover{
-        background-color: rgba(138, 137, 137, 0.613);
-    }
-
-	header.open-nav button.menu-btn i:before {
-	    content: '\f00d ';
-	}
-	header.open-nav button.menu-btn i:before {
-	    content: '\f00d ';
-	}
+  header .nav-bar ul li a:hover{
+     background-color: rgba(138, 137, 137, 0.613);
+  }
 
 /* TITLE */
 h1 {
@@ -340,6 +284,7 @@ h1 {
   nav ul .part-two {
     padding: 0 4% 0 0;
   }
+  /*---------------- RESPONSIVE ---------------- */
 
   @media(max-width: 1250px) {
     nav ul div li  {
@@ -353,6 +298,11 @@ h1 {
     left: 3%;
     bottom: 40px;
     transform: translate(10%, 25%);
+  }
+
+  header{
+      display: initial !important;
+      z-index: 100;
   }
  
   }
