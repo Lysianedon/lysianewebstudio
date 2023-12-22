@@ -1,6 +1,5 @@
 <template>
     <nav>
-      <div class="absolute-elem"></div>
       <ul>
         <div class="part-one">
           <li class="">
@@ -146,9 +145,6 @@
   </script>
   
   <style scoped>
-  .absolute-elem {
-    position: relative !important;
-  }
   /* ------ NAV MOBILE -------- */
 
 header {
@@ -167,6 +163,7 @@ header {
 header.open-nav {
   left: 0; 
   position: absolute;
+  z-index: 1000;
   /* test */
   position: fixed;
   top: 0;
@@ -299,10 +296,8 @@ h1 {
     bottom: 40px;
     transform: translate(10%, 25%);
   }
-
-  header{
-      display: initial !important;
-      z-index: 100;
+  header {
+    display: initial !important;
   }
  
   }
