@@ -82,7 +82,7 @@
       tl.fromTo(
         titleDesktop,
         { fontSize: '6em',width: '100%', y: '-115%', position: 'absolute', left: '0', transform: 'translate(-15%, 55%)' },
-        { fontSize: 'clamp(13px, 1.5vw, 500px)', width: '25%', left:'40vw', y:'-3', position: 'intial', duration: 1, letterSpacing: '6px', transform: 'translate(-1%, 80%)' }
+        { fontSize: 'clamp(13px, 1.5vw, 500px)', width: '25%', left:'40vw', y:'-7', position: 'intial', duration: 1, letterSpacing: '6px', transform: 'translate(-1%, 80%)' }
       );
 
       if (this.tlSpans) {
