@@ -1,5 +1,6 @@
 <template>
   <div class="homeview">
+    <Loader v-if="isLoading"/>
     <section class="landing-page" id="home">
       <header>
         <div class="portfolio-block">
@@ -20,7 +21,7 @@
       <Projects/>
     </div>
     <div id="contact" class="contact">
-      <ContactForm/>
+      <ContactForm @isLoading=" (loadingState) => isLoading = loadingState"/>
     </div>
     <div class="footer">
     </div>
@@ -35,6 +36,7 @@ import ContactForm from '../components/contactForm.vue';
 import Technologies from '../components/technologies.vue';
 import Projects from '../components/projects.vue';
 import Footer from '../components/footer.vue';
+import Loader from '../components/loader.vue';
 export default {
   components: {
     Navbar,
@@ -43,7 +45,14 @@ export default {
     Technologies,
     Projects,
     Footer,
+    Loader,
   },
+  data() {
+    return {
+      notification: null,
+      isLoading: false,
+    }
+  }
 }
 </script>
 

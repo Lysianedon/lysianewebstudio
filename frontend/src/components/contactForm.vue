@@ -7,7 +7,7 @@
         <form @submit.prevent="submitForm">
           <div class="form-group">
             <label for="name">Nom et prénom*</label>
-            <input type="text" id="name" v-model="form.name" @click="callServer">
+            <input type="text" id="name" v-model="form.name">
           </div>
           <div class="form-group">
             <label for="company">Entreprise</label>
@@ -91,21 +91,17 @@
         return isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid;
       }
   },
-  async mounted() {
-    this.callServer();
-  }, 
   methods: {
-    async callServer() {
-      await axios.get('/health');
-    },
     async submitForm() {
       if (!this.valid) return;
+      this.$emit("isLoading", true);
       try {
         await axios.post('/send-email', this.form);
         this.form.message = null;
       } catch (error) {
         console.error('Failed to send email:', error);
       }
+      this.$emit("isLoading", false);
     }
 },
 

@@ -9,6 +9,7 @@
                     <ul>
                         <li>Vue.js 2 et 3</li>
                         <li>React</li>
+                        <li>Pinia</li>
                         <li>Vuetify</li>
                         <li>Buefy</li>
                         <li>Bulma</li>
