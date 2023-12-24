@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     displayNotification(message) {
-      if(!message.trim()) return;
+      if(!message || message.trim() === '') return;
       this.notification = message;
       setTimeout(() => {
         this.notification = null;
