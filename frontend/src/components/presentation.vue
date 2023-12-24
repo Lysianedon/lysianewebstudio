@@ -3,10 +3,21 @@
       <h1>Présentation</h1>
       <div class="presentation">
         <h2 class="playfair-font">Je suis Lysiane, développeuse web fullstack spécialisée en Javascript. Je crée des projets intuitifs et performants, avec chaque ligne de code visant à améliorer l'expérience utilisateur.</h2>
-        <h2 class="playfair-font">Inspirée par les créateurs de <a href="https://www.notion.so/fr-fr" target="_blank" rel="noopener noreferrer">Notion</a>, je m'applique à rendre le complexe simple et agréable. Pour une vision détaillée de mon travail, <a href="src/assets/CV-FRENCH.pdf" download="CV_Lysiane_DON.pdf" class="download-link">téléchargez mon CV ici</a>.</h2>
+        <h2 class="playfair-font">Inspirée par les créateurs de <a href="https://www.notion.so/fr-fr" target="_blank" rel="noopener noreferrer">Notion</a>, je m'applique à rendre le complexe simple et agréable. Pour une vision détaillée de mon travail, <a :href="cvLink" download="CV_Lysiane_DON.pdf" class="download-link">téléchargez mon CV ici</a>.</h2>
       </div>
     </section>
   </template>
+
+  <script>
+  import cvFile from '../assets/CV-FRENCH.pdf';
+  export default {
+    data() {
+      return {
+        cvLink: cvFile,
+      }
+    }
+  }
+</script>
 
   <style scoped>
   section{
