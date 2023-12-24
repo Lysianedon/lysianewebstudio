@@ -97,6 +97,7 @@
       this.$emit("isLoading", true);
       try {
         await axios.post('/send-email', this.form);
+        this.$emit("notification", "Votre message a bien été envoyé !");
         this.form.message = null;
       } catch (error) {
         console.error('Failed to send email:', error);

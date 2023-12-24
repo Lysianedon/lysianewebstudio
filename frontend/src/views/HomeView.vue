@@ -1,6 +1,7 @@
 <template>
   <div class="homeview">
     <Loader v-if="isLoading"/>
+    <div v-if="notification" class="notification">{{ notification }}</div>
     <section class="landing-page" id="home">
       <header>
         <div class="portfolio-block">
@@ -21,7 +22,7 @@
       <Projects/>
     </div>
     <div id="contact" class="contact">
-      <ContactForm @isLoading=" (loadingState) => isLoading = loadingState"/>
+      <ContactForm @isLoading=" (loadingState) => isLoading = loadingState" @notification="(payload) => displayNotification(payload)"/>
     </div>
     <div class="footer">
     </div>
@@ -52,6 +53,15 @@ export default {
       notification: null,
       isLoading: false,
     }
+  },
+  methods: {
+    displayNotification(message) {
+      if(!message.trim()) return;
+      this.notification = message;
+      setTimeout(() => {
+        this.notification = null;
+      }, 2500);
+    }
   }
 }
 </script>
@@ -63,6 +73,19 @@ export default {
 }
 .landing-page{
   height: 96.6vh;
+}
+.notification{
+  z-index: 1000;
+  background-color: #c9c3ba;
+  font-family: 'Playfair Display', serif;
+  color: rgb(73, 72, 72);
+  padding: .8% 0;
+  text-align: center;
+  font-size: 1.3em;
+  transition: 0.5ms ease-in-out;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 }
 header{
   display: flex;
