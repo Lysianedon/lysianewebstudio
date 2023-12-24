@@ -5,7 +5,7 @@
           <li class="">
             <a href="#home">Accueil</a>
           </li>
-          <li class="menu-mobile" @click="showNavMobile = !showNavMobile">
+          <li class="menu-mobile" @click="toggleNavMobile">
             <a>Menu</a>
           </li>
           <li>
@@ -140,6 +140,26 @@
 
       
     },
+    toggleNavMobile() {
+  if (this.showNavMobile) {
+    this.showNavMobile = false;
+  } else {
+    if (window.scrollY <= 100) { 
+      console.log("In home section")
+      const nav = document.querySelector('.navbar-wrapper');
+      nav.style.top = '-100vh';
+      setTimeout(() => {
+        this.showNavMobile = true;
+        nav.style.top = '0';
+      }, 300); // This delay should match your CSS transition duration
+    } else {
+      nav.style.top = '0';
+      console.log("below home section")
+      this.showNavMobile = true;
+    }
+  }
+}
+
     }
   };
   </script>
@@ -159,14 +179,16 @@ header {
     background-color: #000000e7;
     transition: left 0.5s;
     height: 100vh;
+    /* test */
+    top: -100vh;
 }
 header.open-nav {
   left: 0; 
   position: absolute;
   z-index: 1000;
   /* test */
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: -100vh;
 }
 header .close-btn{
   position: absolute;

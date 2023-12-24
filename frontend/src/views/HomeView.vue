@@ -12,6 +12,7 @@
       <h2 class="welcome">Hello, welcome to <span class="tagline-mobile"> my web studio</span></h2>
     </section>
     <Navbar class="navbar"/>
+    <!-- <NavbarMobile class="navbarMobile"/> -->
   <div id="presentation" class="presentation">
     <Presentation/>
   </div>
@@ -32,6 +33,7 @@
 
 <script>
 import Navbar from '../components/navbar.vue';
+import NavbarMobile from '../components/navbarMobile.vue';
 import Presentation from '../components/presentation.vue';
 import ContactForm from '../components/contactForm.vue';
 import Technologies from '../components/technologies.vue';
@@ -41,6 +43,7 @@ import Loader from '../components/loader.vue';
 export default {
   components: {
     Navbar,
+    NavbarMobile,
     Presentation,
     ContactForm,
     Technologies,
@@ -99,6 +102,7 @@ header{
   position: sticky !important;
   top: 0;
 }
+
 .tagline-mobile{
   display: none;
 }
@@ -137,7 +141,14 @@ header{
   margin: 0vh 0 25vh 0;
 }
 
-/* ------------ */
+  /*---------------- RESPONSIVE ---------------- */
+
+@media(max-width: 1250px){
+  .navbarMobile{
+display: initial;
+}
+
+}
 
 @media(max-width: 768px){
   header{
