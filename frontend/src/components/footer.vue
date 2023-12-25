@@ -2,12 +2,12 @@
   <footer class="footer">
     <nav class="footer-nav">
         <ul class="footer-menu">
+          <li><a href="#technologies">Technologies</a></li>
           <li><a href="#projects">Projets</a></li>
-          <li><a href="#services">Services</a></li>
         </ul>
         <ul class="footer-menu">
+          <li><a href="#presentation">A propos</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#social-media">Réseaux sociaux</a></li>
         </ul>
     </nav>
     <div class="divider"></div>

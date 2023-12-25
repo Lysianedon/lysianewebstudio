@@ -171,7 +171,7 @@ header {
     display: none;
     z-index: -100;
     width: 100%;
-    position: fixed;
+    position: absolute;
     left: -100%;
     background-color: #000000ee;
     transition: left 0.5s;
@@ -215,6 +215,7 @@ header .nav-bar ul {
     align-items: center;
     margin: 0;
     padding: 0;
+    transition: all ease-in-out 2000ms;
 }
 /* NAV LINKS TEXT DECORATION  */
 	header .nav-bar ul li a {

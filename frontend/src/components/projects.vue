@@ -12,8 +12,13 @@
         <button @click="previousProject" class="nav-button" v-if="projects && projects.length > 1">Précédent</button>
         <div class="project-content" v-if="selectedProject">
             <div class="project-img">
-                <img v-if="selectedProject && selectedProject.readMeImg && selectedProject.readMeImg.length" :src="selectedProject.readMeImg[0]" alt="" class="projectImg">
-            </div>
+      <a v-if="selectedProject && selectedProject.readMeImg && selectedProject.readMeImg.length"
+        :href="selectedProject.html_url"
+        target="_blank">
+        <img :src="selectedProject.readMeImg[0]" alt="gif image of the project" class="projectImg">
+      </a>
+    </div>
+
             <div class="project-details">
                 <p class="description">{{ selectedProject.description || 'Aucune description disponible.' }}</p>
                 <p>{{ projectDuration }}</p>
