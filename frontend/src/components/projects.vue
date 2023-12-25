@@ -296,7 +296,6 @@
   z-index: 1;
 }
 
-/* Create a pseudo-element for the background */
 .see-more-button::before {
   content: '';
   position: absolute;
@@ -314,53 +313,8 @@
 .see-more-button:hover::before {
   transform: translate(-50%, -50%) scale(1);
 }
-  @media (max-width: 768px) {
-    .project-container {
-      flex-direction: row;
-      align-items: flex-start; 
-      width: 100%;
-    }
-    .nav-button{
-      display: none;
-    }
-    .project-container .project-details p {
-    margin-bottom: 10px;
-    width: 100%;
-    border-bottom: 1px dotted #898989;
-    padding-bottom: 20px;
-    }
-    .project-content{
-      margin:0;
-    }
-    .project-img{
-    border: none;
-    margin: 0 auto;
-    padding: 0 0 0 .7em;
-    flex: 0 0 45%; 
-    }
-    .project-details{
-      border-left: 1px dotted #b3aea6;
-      flex: 0 0 55%;
-    }
-    .nav-container-mobile{
-      display: initial;
-      display: flex;
-      justify-content: end;
-    }
-    .see-more{
-      margin: 2em auto;
-    }
-    .nav-button-mobile {
-      margin: 0 1em;
-      border: 1px solid grey;
-      border-radius: 25px;
-      padding: .5em 2em;
-      }
-      .see-more-button::before {
-      display: none;
-    }
-  }
-  @media (max-width: 767px) {
+   /*---------------- RESPONSIVE ---------------- */
+  @media (max-width: 900px) {
     h1{
       text-align: center;
     }
@@ -383,12 +337,60 @@
     flex: auto;
     width: 100%;
     flex: 0 0 auto; 
+    cursor: pointer;
+    }
+    .nav-container-mobile{
+      display: initial;
+      display: flex;
+      justify-content: end;
+    }
+
+    .nav-button-mobile {
+      margin: 0 1em;
+      border: 1px solid grey;
+      border-radius: 25px;
+      padding: .5em 2em;
     }
     .nav-button-mobile {
       margin: 0 auto;
     }
+    .nav-button{
+      display: none;
+    }
     .see-more{
+      margin: 2em auto;
       font-size: .9em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .project-container {
+      flex-direction: row;
+      align-items: flex-start; 
+      width: 100%;
+    }
+
+    .project-container .project-details p {
+    margin-bottom: 10px;
+    width: 100%;
+    border-bottom: 1px dotted #898989;
+    padding-bottom: 20px;
+    }
+    .project-content{
+      margin:0;
+    }
+    .project-img{
+    border: none;
+    margin: 0 auto;
+    padding: 0 0 0 .7em;
+    flex: 0 0 45%; 
+    }
+    .project-details{
+      border-left: 1px dotted #b3aea6;
+      flex: 0 0 55%;
+    }
+      .see-more-button::before {
+      display: none;
     }
   }
   </style>
