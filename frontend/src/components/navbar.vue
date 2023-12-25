@@ -5,7 +5,7 @@
           <li class="">
             <a href="#home">Accueil</a>
           </li>
-          <li class="menu-mobile" @click="toggleNavMobile">
+          <li class="menu-mobile" @click="showNavMobile = ! showNavMobile">
             <a>Menu</a>
           </li>
           <li>
@@ -170,38 +170,31 @@
 header {
     display: none;
     z-index: -100;
-    top: 0;
     width: 100%;
     position: fixed;
     left: -100%;
-    /* top: -100vh; */
-    top: 0;
-    background-color: #000000e7;
+    background-color: #000000ee;
     transition: left 0.5s;
-    height: 100vh;
-    /* test */
+    height: 500vh;
     top: -100vh;
 }
 header.open-nav {
   left: 0; 
   position: absolute;
-  z-index: 1000;
-  /* test */
-  position: absolute;
-  top: -100vh;
+  z-index: 10000;
 }
 header .close-btn{
-  position: absolute;
-  right: 2vw;
-  top: 2vh;
   color: #f5efcb;
-  z-index: 1000;
+  z-index: 10000;
   background-color: transparent;
   border: none;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-family: 'Oswald', sans-serif;
   letter-spacing: 1px;
   cursor: pointer;
+  position: sticky;
+  top: 2vh;
+  left: 85vw;
 }
 .nav-bar {
     text-align: center;
@@ -209,6 +202,8 @@ header .close-btn{
     flex-wrap:wrap;
     justify-content:center;
     align-items: center;
+    position: sticky;
+    top: 0;
 }
 header .nav-bar ul {
     padding: 0;

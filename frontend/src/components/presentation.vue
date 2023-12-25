@@ -47,7 +47,10 @@ export default {
     letter-spacing: 1px;
     font-family: 'Oswald', sans-serif;
     font-weight: 100;
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
+
   
   h2 a {
     color: black;
