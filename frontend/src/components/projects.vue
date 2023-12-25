@@ -265,6 +265,7 @@
   
   .see-more {
     margin-top: 5em;
+
   }
   
   /* .see-more-button {
@@ -298,7 +299,6 @@
   cursor: pointer;
   overflow: hidden; 
   transition: background-color 0.3s; 
-  z-index: 1;
 }
 
 .see-more-button::before {
