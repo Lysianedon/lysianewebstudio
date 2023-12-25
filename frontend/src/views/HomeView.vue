@@ -1,7 +1,7 @@
 <template>
   <div class="homeview">
     <Loader v-if="isLoading"/>
-    <div v-if="notification" class="notification">{{ notification }}</div>
+    <div v-if="notification" class="notification" :class="errorNotif ? 'error-notif': null">{{ notification }}</div>
     <section class="landing-page" id="home">
       <header>
         <div class="portfolio-block">
@@ -51,15 +51,19 @@ export default {
   data() {
     return {
       notification: null,
+      errorNotif: false,
       isLoading: false,
     }
   },
   methods: {
-    displayNotification(message) {
+    displayNotification(payload) {
+      const {message, error} = payload;
       if(!message || message.trim() === '') return;
+      if(error) this.errorNotif = true;
       this.notification = message;
       setTimeout(() => {
         this.notification = null;
+        this.errorNotif = false;
       }, 2500);
     }
   }
@@ -75,17 +79,19 @@ export default {
   height: 96.6vh;
 }
 .notification{
-  z-index: 1000;
-  background-color: #c9c3ba;
   font-family: 'Playfair Display', serif;
-  color: rgb(73, 72, 72);
-  padding: .8% 0;
-  text-align: center;
-  font-size: 1.3em;
-  transition: 0.5ms ease-in-out;
+  z-index: 1000;
   position: fixed;
   top: 0;
   width: 100vw;
+  background-color: #79ae71;
+  color: white;
+  padding: 2vh 0;
+  text-align: center;
+  font-size: 1.1em;
+}
+.error-notif{
+  background-color: rgb(169, 64, 71);
 }
 header{
   display: flex;
