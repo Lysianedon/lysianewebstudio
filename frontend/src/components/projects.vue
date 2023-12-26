@@ -298,6 +298,7 @@
   font-size: 2.2em;
   cursor: pointer;
   overflow: hidden; 
+  z-index: 0;
   transition: background-color 0.3s; 
 }
 
