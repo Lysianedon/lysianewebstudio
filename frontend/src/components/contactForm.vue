@@ -130,9 +130,13 @@ p{
   font-family: 'Playfair Display', serif;
 }
 
+p:nth-of-type(1) {
+  margin: -2em 0 1em 0;
+}
 p:nth-of-type(2) {
   margin: 0 0 6vh 0;
 }
+
 form{
     width: 80%;
     max-width: 800px;
@@ -152,10 +156,10 @@ form{
   margin-bottom: 1rem;
 }
   
-  label {
-    font-size: 1.25em;
-    margin-bottom: .5em;
-  }
+label {
+  font-size: 1.25em;
+  margin-bottom: .5em;
+}
   
   input, textarea {
     width: 100%;
