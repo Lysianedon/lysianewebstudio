@@ -1,19 +1,31 @@
 <template>
-    <div id="container">
-        <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  <div id="container">
+    <div class="lds-default">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
+  </div>
 </template>
 
 <style scoped>
-
-#container{
-    height: 100vh;
-    top: 0;
-    width: 100vw;
-    position: fixed;
-    z-index: 10000;
-    background-color: #9a9a9a6d;
-    background-color: #9797976d;
+#container {
+  height: 100vh;
+  top: 0;
+  width: 100vw;
+  position: fixed;
+  z-index: 10000;
+  background-color: #9a9a9a6d;
+  background-color: #9797976d;
 }
 .lds-default {
   display: inline-block;
@@ -93,12 +105,14 @@
   left: 62px;
 }
 @keyframes lds-default {
-  0%, 20%, 80%, 100% {
+  0%,
+  20%,
+  80%,
+  100% {
     transform: scale(1);
   }
   50% {
     transform: scale(1.5);
   }
 }
-
 </style>
