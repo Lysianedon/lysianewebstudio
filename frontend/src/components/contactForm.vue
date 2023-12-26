@@ -5,15 +5,18 @@
         <p>Un projet ou une question en tête ?</p>
         <p>Discutons-en ensemble.</p>
         <form @submit.prevent="submitForm">
-          <div class="form-group">
-            <label for="name">Nom et prénom*</label>
-            <input type="text" id="name" v-model="form.name">
+          <div class="field-group">
+            <div class="form-group">
+              <label for="name">Nom et prénom*</label>
+              <input type="text" id="name" v-model="form.name">
+            </div>
+            <div class="form-group">
+              <label for="company">Entreprise</label>
+              <input type="text" id="company" v-model="form.company">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="company">Entreprise</label>
-            <input type="text" id="company" v-model="form.company">
-          </div>
-          <div class="form-group">
+          <div class="field-group">
+            <div class="form-group">
             <label for="email">Email*</label>
             <input type="email" id="email" v-model="form.email">
           </div>
@@ -21,6 +24,8 @@
             <label for="phone">Numéro de téléphone</label>
             <input type="tel" id="phone" v-model="form.phoneNumber">
           </div>
+          </div>
+        
           <div class="form-group">
             <label for="subject">Objet</label>
             <input type="text" id="subject" v-model="form.subject">
@@ -113,7 +118,6 @@
   
   <style scoped>
   h1 {
-  
   color: #b3aea6;
   line-height: 100%;
 }
@@ -133,12 +137,20 @@ form{
     width: 80%;
     max-width: 800px;
     margin: auto;
-    /* padding: 2vh 2vw; */
-    /* border: 1px solid grey; */
 }
-  .form-group {
-    margin-bottom: 1rem;
-  }
+.field-group{
+  display: flex;
+  justify-content: center;
+}
+.field-group .form-group{
+  width: 50%;
+}
+.field-group .form-group:nth-child(1){
+  margin-right: 1.3em;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
   
   label {
     font-size: 1.25em;
@@ -201,7 +213,6 @@ form{
   align-items: center;
   justify-content: center;
 }
-
 .social-links .line {
   flex-grow: 1;
   height: 1px;
@@ -211,19 +222,15 @@ form{
   width: 15vw;
   max-width: 470px;
 }
-
-
 .social-links .icons-mobile{
     display: none;
-  }
-
+}
 .icons {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 .icon-container {
   display: flex;
   align-items: center;
@@ -237,7 +244,6 @@ form{
   margin: 0 0 3px 15px;
   font-size: 1.1rem;
 }
-
 @media (max-width: 768px) {
   form{
     width: 90%;
@@ -281,6 +287,18 @@ form{
 }
 }
 @media(max-width: 425px) {
+  .field-group{
+  flex-direction: column;
+}
+.field-group .form-group{
+  width: 100%;
+}
+.field-group .form-group:nth-child(1){
+  margin-right: 0;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
   .social-links .icons{
     display: none;
   }
