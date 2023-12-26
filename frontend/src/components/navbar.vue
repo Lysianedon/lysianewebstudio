@@ -140,25 +140,6 @@
 
       
     },
-    toggleNavMobile() {
-  if (this.showNavMobile) {
-    this.showNavMobile = false;
-  } else {
-    if (window.scrollY <= 100) { 
-      console.log("In home section")
-      const nav = document.querySelector('.navbar-wrapper');
-      nav.style.top = '-100vh';
-      setTimeout(() => {
-        this.showNavMobile = true;
-        nav.style.top = '0';
-      }, 300); // This delay should match your CSS transition duration
-    } else {
-      nav.style.top = '0';
-      console.log("below home section")
-      this.showNavMobile = true;
-    }
-  }
-}
 
     }
   };
@@ -166,13 +147,15 @@
   
   <style scoped>
   /* ------ NAV MOBILE -------- */
-
+  * {
+    z-index: 1000;
+  }
 header {
     display: none;
     z-index: -100;
     width: 100%;
     position: absolute;
-    left: -100%;
+    left: -110%;
     background-color: #000000ee;
     transition: left 0.5s;
     height: 500vh;
@@ -180,7 +163,6 @@ header {
 }
 header.open-nav {
   left: 0; 
-  position: absolute;
   z-index: 10000;
 }
 header .close-btn{
@@ -300,7 +282,6 @@ h1 {
     padding: 0 4% 0 0;
   }
   /*---------------- RESPONSIVE ---------------- */
-
   @media(max-width: 1250px) {
     nav ul div li  {
     display: none;
@@ -309,17 +290,16 @@ h1 {
     display: block;
   }
   .menu-mobile {
+    cursor: pointer;
     position: absolute;
     left: 3%;
-    cursor: pointer;
-    bottom: 35px;
-    transform: translate(10%, 25%);
+    bottom: 25%;
+    line-height: 210%;
   }
   header {
     display: initial !important;
   }
- 
-  }
+}
 @media (max-width: 820px) {
   .title-tablet{
     display: flex;
@@ -352,9 +332,7 @@ h1 {
     margin: 0 2vw !important;
   }
   .menu-mobile{
-    transform: translate(10%, 105%);
-    font-size: 15px;
-    line-height: 120%;
+    bottom: 15%;
   }
 
 }
