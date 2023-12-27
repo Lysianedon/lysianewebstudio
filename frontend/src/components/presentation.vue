@@ -74,6 +74,7 @@ h2 a {
 @media (max-width: 768px) {
   section {
     padding: 0 3vw;
+    min-height: 55vh;
   }
   .presentation {
     width: 100%;
@@ -83,7 +84,7 @@ h2 a {
     font-size: 3.5em;
   }
   .presentation h2 {
-    line-height: 200%;
+    line-height: 265%;
     font-size: 1em;
     margin: auto;
   }

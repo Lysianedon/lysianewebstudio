@@ -129,7 +129,7 @@ ul li {
     font-size: 3.5em;
     text-align: center;
     width: 100%;
-    margin: 0 0 15vh 0;
+    margin: 0 0 9vh 0;
   }
   .main-blocks {
     flex-direction: column;

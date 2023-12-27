@@ -292,10 +292,10 @@ h1 {
   font-family: "Playfair Display", serif;
   cursor: pointer;
   border-top: 1px solid black;
+  color: black;
   padding-top: 15px;
 }
-.nav-button:hover,
-.nav-button-mobile:hover {
+.nav-button:hover {
   color: #b3aea6;
   border-top: 1px solid #b3aea6;
 }
