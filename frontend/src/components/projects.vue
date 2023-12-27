@@ -185,7 +185,6 @@ export default {
   
   <style scoped>
 .project-section {
-  /* font-family: 'Playfair Display', serif; */
   text-align: center;
   width: 95vw;
   margin: auto;
@@ -261,7 +260,6 @@ h1 {
   flex-direction: column;
   width: 50%;
   font-family: "Playfair Display", serif;
-  /* border-left: 1px dotted #898989; */
 }
 .project-container .project-details .description {
   margin: 0 auto;
@@ -286,11 +284,9 @@ h1 {
   line-height: 210%;
 }
 .project-container .project-details .technical-infos .divider {
-  /* height: 100%; */
   flex: 0 0 1px;
   width: 100px;
   flex-shrink: 0;
-  /* height: 300px; */
   padding: 0 4%;
   border-right: 1px dotted #898989;
 }
@@ -316,25 +312,6 @@ h1 {
 .see-more {
   margin-top: 5em;
 }
-
-/* .see-more-button {
-    text-decoration: none;
-    background-color: #b3aea63b;
-    padding: 40px;
-    color: black;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    display: inline-block; 
-    transform: scale(.9); 
-  }
-
-  .see-more-button:hover {
-  transform: scale(1.2); 
-} */
-
 .see-more-button {
   position: relative;
   text-decoration: none;

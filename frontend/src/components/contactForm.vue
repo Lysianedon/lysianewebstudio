@@ -272,7 +272,6 @@ textarea:focus {
   width: 100%;
   padding: 1rem 0;
   border: none;
-  /* border-radius: 3px; */
   background-color: #333;
   color: white;
   font-size: 1.25rem;
