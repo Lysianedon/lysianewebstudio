@@ -50,7 +50,7 @@
     </div>
     <div class="footer">
     </div>
-    <Footer />
+    <FooterComponent />
   </div>
 </template>
 
@@ -60,7 +60,7 @@ import Presentation from "../components/presentation.vue";
 import ContactForm from "../components/contactForm.vue";
 import Technologies from "../components/technologies.vue";
 import Projects from "../components/projects.vue";
-import Footer from "../components/footer.vue";
+import FooterComponent from "../components/footerComponent.vue";
 import Loader from "../components/loader.vue";
 export default {
   components: {
@@ -69,7 +69,7 @@ export default {
     ContactForm,
     Technologies,
     Projects,
-    Footer,
+    FooterComponent,
     Loader
   },
   data() {
