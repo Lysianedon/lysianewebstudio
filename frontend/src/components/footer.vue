@@ -17,8 +17,7 @@
   </footer>
 </template>
 
-  <script></script>
-  <style scoped>
+<style scoped>
 .footer {
   background-color: #333;
   font-family: "Playfair Display", serif;
@@ -29,7 +28,7 @@
   align-items: center;
   justify-content: center;
 }
-nav {
+.footer-nav {
   max-width: 2000px;
   margin: auto;
   display: flex;
@@ -45,7 +44,6 @@ nav {
   display: flex;
   justify-content: space-around;
 }
-
 .footer-menu li a {
   color: #fff;
   text-decoration: none;

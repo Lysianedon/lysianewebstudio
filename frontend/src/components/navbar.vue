@@ -371,7 +371,7 @@ nav ul .part-two {
     margin: 0 2vw !important;
   }
   .menu-mobile {
-    bottom: 15%;
+    bottom: 17%;
   }
 }
 </style>
