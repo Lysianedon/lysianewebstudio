@@ -123,7 +123,6 @@ header {
   width: 93vw;
   margin: 4vh auto 0 auto;
   font-size: 20px;
-  /* border: 2px solid grey; */
 }
 .navbar {
   position: sticky !important;
