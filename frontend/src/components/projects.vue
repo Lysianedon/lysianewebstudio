@@ -180,7 +180,7 @@ export default {
 };
 </script>
   
-  <style scoped>
+<style scoped>
 .project-section {
   text-align: center;
   width: 95vw;
@@ -191,15 +191,6 @@ h1 {
   line-height: 100%;
   text-align: start;
 }
-
-.project-name {
-  text-align: left;
-  font-size: 5vw;
-  color: #b3aea6;
-  line-height: 100%;
-  transition: all ease-in 150ms;
-  font-family: "Playfair Display", serif;
-}
 .nav-container-mobile {
   display: none;
 }
@@ -208,11 +199,9 @@ h1 {
   align-items: center;
   flex-grow: 1;
 }
-
 .project-navigation h1 {
   margin-bottom: 0.5em;
 }
-
 .project-list {
   list-style: none;
   text-align: end;
@@ -230,7 +219,6 @@ h1 {
   font-size: 1.2rem;
   transition: all ease-in 150ms;
 }
-
 .project-container {
   display: flex;
   align-items: center;
@@ -239,7 +227,6 @@ h1 {
   max-width: 1550px;
   margin: auto;
 }
-
 .project-content {
   border: 1px dotted #898989;
   width: 50%;
@@ -251,7 +238,6 @@ h1 {
   padding: 0;
   margin: 0;
 }
-
 .project-container .project-details {
   display: flex;
   flex-direction: column;
@@ -305,7 +291,6 @@ h1 {
   color: #b3aea6;
   border-top: 1px solid #b3aea6;
 }
-
 .see-more {
   margin-top: 5em;
 }
@@ -323,7 +308,6 @@ h1 {
   overflow: hidden;
   transition: background-color 0.3s;
 }
-
 .see-more-button::after {
   content: "";
   position: absolute;
@@ -334,7 +318,6 @@ h1 {
   background-color: rgba(16, 16, 16, 0.483);
   transition: width 0.3s ease;
 }
-
 .see-more-button:hover::after {
   width: 100%;
 }
@@ -387,14 +370,13 @@ h1 {
     font-size: 0.9em;
   }
 }
-
+/* -------TABLET MODE-------  */
 @media (max-width: 768px) {
   .project-container {
     flex-direction: row;
     align-items: flex-start;
     width: 100%;
   }
-
   .project-container .project-details p {
     margin-bottom: 10px;
     width: 100%;
