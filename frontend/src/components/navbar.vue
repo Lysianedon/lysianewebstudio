@@ -51,7 +51,6 @@
               href="#home"
               class="white"
             >Accueil</a>
-            <a href="#projects">Projets</a>
             <a href="#technologies">Technologies</a>
             <a href="#projects">Projets</a>
             <a href="#presentation">A propos</a>
