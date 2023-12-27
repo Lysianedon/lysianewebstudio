@@ -37,12 +37,16 @@
               class="projectImg"
             >
           </a>
+          <p
+            v-else
+            class=""
+          >Aucune image disponible.</p>
         </div>
         <div class="project-details">
           <p class="description">{{ selectedProject.description || 'Aucune description disponible.' }}</p>
           <p>{{ projectDuration }}</p>
           <div class="technical-infos">
-            <div>
+            <div class="realisations">
               <h4>Réalisations</h4>
               <ul>
                 <li
@@ -53,7 +57,7 @@
               </ul>
             </div>
             <div class="divider"></div>
-            <div>
+            <div class="technos-used">
               <h4>Technologies utilisées</h4>
               <ul>
                 <li
@@ -194,11 +198,6 @@ h1 {
 .nav-container-mobile {
   display: none;
 }
-.project-content {
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-}
 .project-navigation h1 {
   margin-bottom: 0.5em;
 }
@@ -228,6 +227,9 @@ h1 {
   margin: auto;
 }
 .project-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
   border: 1px dotted #898989;
   width: 50%;
   margin: 0 2em;
@@ -246,8 +248,8 @@ h1 {
 }
 .project-container .project-details .description {
   margin: 0 auto;
-  line-height: 170%;
-  padding: 0.6em;
+  line-height: 160%;
+  padding: 0.6em 0;
 }
 .project-container .project-details p {
   margin-bottom: 10px;
@@ -262,7 +264,11 @@ h1 {
   justify-content: space-around;
   align-items: stretch;
 }
-
+.project-container .project-details .technical-infos .technos-used,
+.project-container .project-details .technical-infos .realisations {
+  width: 50%;
+  max-width: 50%;
+}
 .project-container .project-details .technical-infos ul li {
   line-height: 210%;
 }
@@ -270,8 +276,10 @@ h1 {
   flex: 0 0 1px;
   width: 100px;
   flex-shrink: 0;
-  padding: 0 4%;
+  padding: 0 2% 0 1%;
   border-right: 1px dotted #898989;
+  min-height: 250px;
+  height: 100%;
 }
 .projectImg {
   max-width: 100%;
@@ -323,6 +331,25 @@ h1 {
 }
 
 /*---------------- RESPONSIVE ---------------- */
+@media (max-width: 1200px) {
+  .see-more {
+    margin: 2.2em auto;
+    font-size: 0.9em;
+  }
+  .nav-container-mobile {
+    display: flex;
+    justify-content: end;
+  }
+  .nav-button-mobile {
+    margin: 0 1em;
+    border: 1px solid grey;
+    border-radius: 25px;
+    padding: 0.5em 2em;
+  }
+  .nav-button {
+    display: none;
+  }
+}
 @media (max-width: 900px) {
   h1 {
     text-align: center;
@@ -348,26 +375,8 @@ h1 {
     flex: 0 0 auto;
     cursor: pointer;
   }
-  .nav-container-mobile {
-    display: initial;
-    display: flex;
-    justify-content: end;
-  }
-  .nav-button-mobile {
-    margin: 0 1em;
-    border: 1px solid grey;
-    border-radius: 25px;
-    padding: 0.5em 2em;
-  }
   .nav-button-mobile {
     margin: 0 auto;
-  }
-  .nav-button {
-    display: none;
-  }
-  .see-more {
-    margin: 2em auto;
-    font-size: 0.9em;
   }
 }
 /* -------TABLET MODE-------  */
