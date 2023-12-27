@@ -49,8 +49,8 @@
       />
     </div>
     <div class="footer">
+      <FooterComponent />
     </div>
-    <FooterComponent />
   </div>
 </template>
 
@@ -95,7 +95,6 @@ export default {
 </script>
 
 <style scoped>
-/*------------- SECTION 1 : LANDING PAGE ----------- */
 .playfair-font {
   font-family: "Playfair Display", serif;
 }
@@ -155,7 +154,7 @@ header {
   margin: 30vh 0 0 0;
   text-align: center;
 }
-/* -------------------------------------------------- */
+/* ---------------- SECTIONS ----------------------- */
 
 .presentation {
   margin: 40vh 0 25vh 0;
@@ -166,15 +165,12 @@ header {
 .projets {
   margin: 0vh 0 25vh 0;
 }
-
 /*---------------- RESPONSIVE ---------------- */
-
-@media (max-width: 1250px) {
-  .navbarMobile {
-    display: initial;
+@media (max-width: 1000px) {
+  .line {
+    width: 84.5vw;
   }
 }
-
 @media (max-width: 768px) {
   header {
     width: 95%;
