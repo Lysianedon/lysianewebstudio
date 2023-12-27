@@ -188,7 +188,7 @@ header {
   .presentation {
     font-size: 1em;
     width: 95vw;
-    margin: 10vh 0 0 0;
+    margin: 10vh 0 4vh 0;
   }
   .technologies {
     margin: 0;

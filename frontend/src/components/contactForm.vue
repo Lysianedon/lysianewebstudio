@@ -360,7 +360,7 @@ textarea:focus {
   }
   .social-links .line {
     margin: 0 10px;
-    width: 50px;
+    /* width: 50px; */
     min-width: 90px;
     max-width: 470px;
   }
@@ -373,6 +373,9 @@ textarea:focus {
   .icon-container span {
     margin: 0 0 3px 15px;
     font-size: 1.1rem;
+  }
+  .social-links h2 {
+    width: 88%;
   }
 }
 @media (max-width: 425px) {
@@ -393,9 +396,6 @@ textarea:focus {
   }
   .social-links .icons-mobile {
     display: initial;
-  }
-  .social-links h2 {
-    width: 88%;
   }
 }
 </style>
