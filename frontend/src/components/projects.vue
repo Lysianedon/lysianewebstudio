@@ -115,14 +115,11 @@ export default {
     projectDuration() {
       const project = this.selectedProject;
       if (!project) return "";
-      // Extract the years from the dates
       const createdYear = new Date(project.created_at).getFullYear();
       const pushedYear = new Date(project.pushed_at).getFullYear();
-      // Check if the years are the same, if so, return just one year
       if (createdYear === pushedYear) {
         return `${createdYear}`;
       }
-      // If the years are different, return the range
       return `${createdYear} - ${pushedYear}`;
     }
   },
