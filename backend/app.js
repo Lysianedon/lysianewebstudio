@@ -34,6 +34,7 @@ app.post("/send-email", async (req, res) => {
     }
     try {
         await sgMail.send(msg);
+        console.log(`[SENGRID] Email from ${email} successfully sent to ${process.env.MY_EMAIL_ADDRESS}`)
         res.status(200).json({ error: false, content: "Email sent" });
     } catch (error) {
         console.error(error);
