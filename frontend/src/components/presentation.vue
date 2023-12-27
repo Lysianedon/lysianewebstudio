@@ -28,7 +28,7 @@ export default {
 </script>
   <style scoped>
 section {
-  min-height: 70vh;
+  min-height: 60vh;
   padding: 0 2vw;
   font-family: "Playfair Display", serif;
   width: 93vw;
@@ -74,7 +74,7 @@ h2 a {
 @media (max-width: 768px) {
   section {
     padding: 0 3vw;
-    min-height: 55vh;
+    min-height: 70vh;
   }
   .presentation {
     width: 100%;
