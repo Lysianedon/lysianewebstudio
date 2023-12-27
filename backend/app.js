@@ -25,8 +25,8 @@ app.post("/send-email", async (req, res) => {
         return res.status(400).json({ error: true, message: "Missing required fields." });
     }
     const msg = {
-        to: 'lysiane.don.dev@gmail.com', 
-        from: 'lysiane.don.dev@gmail.com',
+        to: process.env.MY_EMAIL_ADDRESS, 
+        from: process.env.MY_EMAIL_ADDRESS,
         reply_to: email,
         subject: subject || null,
         text: `Nouveau mail de contact via Portfolio: ${name}`,
