@@ -69,8 +69,9 @@
       <h2>RESTONS <span class="line"></span> CONNECTÉS</h2>
       <div class="icons">
         <a
-          href="https://github.com"
+          href="https://github.com/Lysianedon"
           class="icon-container"
+          target="__blank"
         >
           <img
             width="41"
@@ -80,8 +81,9 @@
           /><span>GitHub </span>
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/lysianedon/"
           class="icon-container"
+          target="__blank"
         >
           <img
             width="40"
@@ -91,8 +93,9 @@
           /><span>Linkedin</span>
         </a>
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/elle.d_/"
           class="icon-container"
+          target="__blank"
         >
           <img
             width="40"
@@ -104,8 +107,9 @@
       </div>
       <div class="icons-mobile">
         <a
-          href="https://github.com"
+          href="https://github.com/Lysianedon"
           class="icon-container"
+          target="__blank"
         >
           <img
             width="31"
@@ -115,8 +119,9 @@
           /><span>GitHub </span>
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/lysianedon/"
           class="icon-container"
+          target="__blank"
         >
           <img
             width="31"
@@ -126,8 +131,9 @@
           /><span>Linkedin</span>
         </a>
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/elle.d_/"
           class="icon-container"
+          target="__blank"
         >
           <img
             width="31"
