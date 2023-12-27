@@ -331,6 +331,15 @@ h1 {
 }
 
 /*---------------- RESPONSIVE ---------------- */
+@media (min-width: 1500px) {
+  .divider {
+    margin: 4% auto 0 auto;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+}
 @media (max-width: 1200px) {
   .see-more {
     margin: 2.2em auto;
@@ -356,6 +365,7 @@ h1 {
   }
   .project-container {
     flex-direction: column;
+    border-left: 1px dotted #898989;
     width: 100%;
   }
   .project-content {
@@ -374,6 +384,7 @@ h1 {
     width: 100%;
     flex: 0 0 auto;
     cursor: pointer;
+    border-right: none;
   }
   .nav-button-mobile {
     margin: 0 auto;
@@ -396,13 +407,13 @@ h1 {
     margin: 0;
   }
   .project-img {
-    border: none;
     margin: 0 auto;
     padding: 0 0 0 0.7em;
     flex: 0 0 45%;
+    margin: 0;
+    padding: 0;
   }
   .project-details {
-    border-left: 1px dotted #b3aea6;
     flex: 0 0 55%;
   }
   .see-more-button::after {

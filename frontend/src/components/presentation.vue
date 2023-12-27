@@ -31,7 +31,9 @@ section {
   min-height: 70vh;
   padding: 0 2vw;
   font-family: "Playfair Display", serif;
-  width: 100%;
+  width: 93vw;
+  max-width: 100vw;
+  margin: auto;
   overflow-x: hidden;
 }
 h1 {
@@ -79,7 +81,6 @@ h2 a {
   }
   h1 {
     font-size: 3.5em;
-    /* text-align: center; */
   }
   .presentation h2 {
     line-height: 200%;
