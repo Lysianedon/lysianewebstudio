@@ -52,7 +52,7 @@ app.get("/health", (req, res) => {
     res.status(200).json("OK");
 })
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
     res.status(404).json("Error: endpoint not found.");
 })
 
