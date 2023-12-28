@@ -8,7 +8,7 @@
           href="https://www.notion.so/fr-fr"
           target="_blank"
           rel="noopener noreferrer"
-        >Notion</a>, je m'applique à rendre le complexe simple et agréable. Pour une vision détaillée de mon travail, <a
+        >Notion</a>, je m'applique à rendre le complexe simple et agréable. Pour une vision détaillée de mon travail et de mon parcours, <a
           :href="cvLink"
           download="CV_Lysiane_DON.pdf"
           class="download-link"

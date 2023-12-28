@@ -70,12 +70,19 @@
         </div>
       </div>
       <button
-        v-if="projects && projects.length > 1"
+        v-show="projects && projects.length > 1"
         @click="nextProject"
         class="nav-button"
       >Suivant</button>
     </div>
-
+    <p
+      v-show="selectedProject.issuesMet"
+      class="issues-solutions"
+    ><span>Problématiques rencontrées:</span> {{ selectedProject.issuesMet }}</p>
+    <p
+      v-show="selectedProject.solutionsFound"
+      class="issues-solutions"
+    ><span>Solutions trouvées:</span> {{ selectedProject.solutionsFound || null}}</p>
     <div
       class="see-more"
       v-if="selectedProject"
@@ -134,25 +141,49 @@ export default {
     async fetchProjects() {
       try {
         const username = "lysianedon";
-        const repositories = await axios.get(`https://api.github.com/users/${username}/repos`);
-        this.projects = repositories.data;
-        const projects = repositories.data.filter(
+        const response = await axios.get(`https://api.github.com/users/${username}/repos`);
+        let projects = response.data.filter(
           (p) => p.stargazers_count > 0 && p.name !== "lysianewebstudio"
         );
-        this.projects = projects;
-        for (let i = 0; i < this.projects.length; i++) {
-          this.projects[i].readMeImg = await this.fetchReadmeImages(this.projects[i].name);
-          const name = this.projects[i].name.split("-").join(" ").trim();
-          this.projects[i].name = name;
-          this.projects[i].missions = this.projects[i].description?.split("Réalisations:")[1];
-          this.projects[i].description = this.projects[i].description?.split("Réalisations:")[0];
-          this.projects[i].missions = this.projects[i].missions?.split(",");
-          this.projects[i].stacks = this.projects[i].topics;
+
+        for (let i = 0; i < projects.length; i++) {
+          const project = projects[i];
+          project.readMeImg = await this.fetchReadmeImages(project.name);
+          const name = project.name.split("-").join(" ").trim();
+          project.name = name;
+
+          if (project.description && project.description !== "") {
+            const [description, accomplishments, issues, solutions] = project.description.split(
+              /Réalisations:|Problématiques rencontrées:|Solutions trouvées:/
+            );
+            project.description = description.trim();
+
+            project.missions = accomplishments
+              ? accomplishments.split(",").map((item) => item.trim())
+              : [];
+
+            project.issuesMet = issues
+              ? issues
+                  .split(",")
+                  .map((item) => item.trim())
+                  .join(",")
+              : "Aucune.";
+
+            project.solutionsFound = solutions
+              ? solutions
+                  .split(",")
+                  .map((item) => item.trim())
+                  .join(",")
+              : null;
+          }
+          project.stacks = project.topics;
         }
+        this.projects = projects;
       } catch (error) {
         console.error("Error fetching projects:", error);
       }
     },
+
     async fetchReadmeImages(repoName) {
       const username = "lysianedon";
       let readme = await fetch(`https://api.github.com/repos/${username}/${repoName}/readme`, {
@@ -217,6 +248,16 @@ h1 {
   font-family: "Playfair Display", serif;
   font-size: 1.2rem;
   transition: all ease-in 150ms;
+}
+
+.issues-solutions {
+  font-family: "Playfair Display", serif;
+  width: 85%;
+  text-align: left;
+  padding: 2% 0 0 5%;
+}
+.issues-solutions span {
+  text-decoration: underline;
 }
 .project-container {
   display: flex;
@@ -418,6 +459,10 @@ h1 {
   }
   .see-more-button::after {
     display: none;
+  }
+  .issues-solutions {
+    width: 100%;
+    padding: 2% 0 0 0;
   }
 }
 </style>
