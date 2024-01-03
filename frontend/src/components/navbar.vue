@@ -194,7 +194,7 @@ header {
   left: -110%;
   background-color: #000000ee;
   transition: left 0.5s;
-  height: 500vh;
+  height: 200vh;
   top: -100vh;
 }
 header.open-nav {
