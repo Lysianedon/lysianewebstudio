@@ -15,7 +15,7 @@
           <div class="playfair-font">Portfolio</div>
         </div>
         <div class="year"><span>20</span>
-          <div class="line"></div><span>23</span>
+          <div class="line"></div><span>24</span>
         </div>
       </header>
       <h2 class="welcome">Hello, welcome to <span class="tagline-mobile"> my web studio</span></h2>
