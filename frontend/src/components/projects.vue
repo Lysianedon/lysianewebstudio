@@ -254,16 +254,17 @@ h1 {
   width: 50%;
   font-family: "Playfair Display", serif;
 }
-.project-container .project-details .description {
-  margin: 0 auto;
-  line-height: 160%;
-  padding: 0.6em 0;
-}
 .project-container .project-details p {
   margin-bottom: 10px;
   width: 100%;
   border-bottom: 1px dotted #898989;
   padding-bottom: 20px;
+}
+.project-container .project-details .description {
+  margin: -40px auto 0 auto;
+  max-height: 50px;
+  line-height: 160%;
+  padding: 0.6em 0 1em 0;
 }
 
 .project-container .project-details .technical-infos {
@@ -279,6 +280,7 @@ h1 {
 }
 .project-container .project-details .technical-infos ul li {
   line-height: 210%;
+  list-style-type: square;
 }
 .project-container .project-details .technical-infos .divider {
   flex: 0 0 1px;
@@ -365,6 +367,9 @@ h1 {
   }
   .nav-button {
     display: none;
+  }
+  .project-container .project-details .description {
+    margin: 0 auto;
   }
 }
 @media (max-width: 900px) {
