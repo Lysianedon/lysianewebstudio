@@ -214,6 +214,9 @@ h1 {
   text-align: end;
   padding: 0;
   margin: 0 0 6vh 0;
+  /* border: 1px solid black; */
+  width: 83vw;
+  max-width: 1550px;
 }
 .project-list li {
   cursor: pointer;
@@ -381,6 +384,9 @@ h1 {
     border-left: 1px dotted #898989;
     width: 100%;
   }
+  .project-list {
+    width: 92vw;
+  }
   .project-content {
     flex-direction: column;
     width: 100%;
@@ -416,6 +422,7 @@ h1 {
     border-bottom: 1px dotted #898989;
     padding-bottom: 20px;
   }
+
   .project-content {
     margin: 0;
   }
