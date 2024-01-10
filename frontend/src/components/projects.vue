@@ -267,7 +267,7 @@ h1 {
   margin: -15px auto 0 auto;
   max-height: 50px;
   line-height: 160%;
-  padding: 0.7em 0 1em 0;
+  padding: 0.6em 0 1em 0;
 }
 
 .project-container .project-details .technical-infos {
