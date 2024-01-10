@@ -99,7 +99,7 @@ export default {
         {
           fontSize: "6em",
           width: "100%",
-          y: "-115%",
+          y: "-125%",
           position: "absolute",
           left: "0",
           transform: "translate(-15%, 55%)"
@@ -108,7 +108,7 @@ export default {
           fontSize: "clamp(13px, 1.5vw, 500px)",
           width: "25%",
           left: "40vw",
-          y: "-7",
+          y: "-4%",
           position: "intial",
           duration: 1,
           letterSpacing: "6px",
@@ -336,6 +336,10 @@ nav ul .part-two {
   }
   header {
     display: initial !important;
+  }
+  .title-desktop {
+    position: absolute !important;
+    top: 28px;
   }
 }
 @media (max-width: 820px) {
