@@ -308,7 +308,7 @@ h1 {
   border-top: 1px solid #b3aea6;
 }
 .see-more {
-  margin-top: 5em;
+  margin-top: 1.4em;
 }
 .see-more-button {
   position: relative;
