@@ -50,6 +50,7 @@ h1 {
   text-align: justify;
   line-height: 300%;
   font-size: 1.2rem;
+  font-weight: normal;
 }
 
 .download-link {
