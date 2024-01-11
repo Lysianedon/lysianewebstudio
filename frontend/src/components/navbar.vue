@@ -94,27 +94,51 @@ export default {
           scrub: 1
         }
       });
-      tl.fromTo(
-        titleDesktop,
-        {
-          fontSize: "6em",
-          width: "100%",
-          y: "-125%",
-          position: "absolute",
-          left: "0",
-          transform: "translate(-15%, 55%)"
-        },
-        {
-          fontSize: "clamp(13px, 1.5vw, 500px)",
-          width: "25%",
-          left: "40vw",
-          y: "-4%",
-          position: "intial",
-          duration: 1,
-          letterSpacing: "6px",
-          transform: "translate(-1%, 80%)"
-        }
-      );
+      if (window.innerWidth < 1900) {
+        tl.fromTo(
+          titleDesktop,
+          {
+            fontSize: "6em",
+            width: "100%",
+            y: "-145%",
+            position: "absolute",
+            left: "0",
+            bottom: "20%"
+          },
+          {
+            fontSize: "clamp(13px, 1.5vw, 450px)",
+            width: "25%",
+            left: "40vw",
+            y: "-4%",
+            position: "intial",
+            duration: 1,
+            letterSpacing: "6px",
+            bottom: "30px"
+          }
+        );
+      } else {
+        tl.fromTo(
+          titleDesktop,
+          {
+            fontSize: "6em",
+            width: "100%",
+            y: "-145%",
+            position: "absolute",
+            left: "0",
+            bottom: "20%"
+          },
+          {
+            fontSize: "clamp(13px, 1.5vw, 450px)",
+            width: "25%",
+            left: "40vw",
+            y: "-4%",
+            position: "intial",
+            duration: 1,
+            letterSpacing: "6px",
+            bottom: "18px"
+          }
+        );
+      }
 
       if (this.tlSpans) {
         this.tlSpans.kill();
