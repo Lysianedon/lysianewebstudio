@@ -1,7 +1,7 @@
 <template>
   <section class="project-section">
     <div class="project-navigation">
-      <h1><span class="line"></span>Projets <span class="line"></span></h1>
+      <h1>Projets</h1>
       <ul
         class="project-list"
         v-if="projects && projects.length"
@@ -213,10 +213,9 @@ h1 {
   list-style: none;
   text-align: end;
   padding: 0;
-  margin: 0 0 6vh 0;
-  /* border: 1px solid black; */
-  width: 83vw;
-  max-width: 1550px;
+  margin: 0 auto 4vh auto;
+  width: 71.5vw;
+  max-width: 1350px;
 }
 .project-list li {
   cursor: pointer;
@@ -224,7 +223,7 @@ h1 {
   transition: all ease-in 1s;
 }
 .project-list .highlight {
-  color: #b3aea6;
+  color: #8b8781;
   font-family: "Playfair Display", serif;
   font-size: 1.2rem;
   transition: all ease-in 150ms;
@@ -370,6 +369,9 @@ h1 {
   }
   .nav-button {
     display: none;
+  }
+  .project-list {
+    width: 79vw;
   }
   .project-container .project-details .description {
     margin: 0 auto;
