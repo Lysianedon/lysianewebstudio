@@ -64,7 +64,7 @@ h1 {
   font-family: "Oswald", sans-serif;
   font-weight: 100;
   padding: 0.5% 1%;
-  background-color: rgba(0, 0, 0, 0.072);
+  background-color: #b3aea634;
   text-underline-offset: 4px;
 }
 
@@ -76,7 +76,7 @@ h2 a {
   font-family: "Oswald", sans-serif;
   font-weight: 100;
   padding: 0.5% 0.7%;
-  background-color: rgba(0, 0, 0, 0.072);
+  background-color: #b3aea634;
   text-underline-offset: 4px;
 }
 
