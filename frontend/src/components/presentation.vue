@@ -2,7 +2,11 @@
   <section>
     <h1>Présentation</h1>
     <div class="presentation">
-      <h2 class="playfair-font">Je suis Lysiane, développeuse web fullstack spécialisée en Javascript. Je crée des projets intuitifs et performants, avec chaque ligne de code visant à améliorer l'expérience utilisateur.</h2>
+      <h2 class="playfair-font">Je suis Lysiane, développeuse web fullstack spécialisée en Javascript. Je crée <a
+          href="https://github.com/Lysianedon"
+          target="_blank"
+          rel="noopener noreferrer"
+        >des projets intuitifs et performants</a>, avec chaque ligne de code visant à améliorer l'expérience utilisateur.</h2>
       <h2 class="playfair-font">Inspirée par les créateurs de
         <a
           href="https://www.notion.so/fr-fr"
@@ -59,7 +63,8 @@ h1 {
   letter-spacing: 1px;
   font-family: "Oswald", sans-serif;
   font-weight: 100;
-  text-decoration: underline;
+  padding: 0.5% 1%;
+  background-color: rgba(0, 0, 0, 0.072);
   text-underline-offset: 4px;
 }
 
@@ -70,6 +75,9 @@ h2 a {
   font-weight: bold;
   font-family: "Oswald", sans-serif;
   font-weight: 100;
+  padding: 0.5% 0.7%;
+  background-color: rgba(0, 0, 0, 0.072);
+  text-underline-offset: 4px;
 }
 
 @media (max-width: 768px) {
