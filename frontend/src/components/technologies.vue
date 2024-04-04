@@ -82,7 +82,7 @@
             alt="logo vuejs"
           >
           <img
-            src="../assets/react-logo.png"
+            src="../assets/logos/react-logo.png"
             alt="logo reactjs"
           >
         </div>
@@ -214,8 +214,9 @@ h1 {
   display: grid;
   margin: auto;
   grid-template-columns: repeat(6, 1fr);
-  /* grid-template-rows: repeat(6, 1fr); */
   grid-template-rows: repeat(6, 20vh);
+  grid-template-rows: repeat(6, 0.6fr);
+  /* background: url("../assets/logos/angular-logo.png"); */
   grid-gap: 10px;
 }
 .grid article {
@@ -223,6 +224,10 @@ h1 {
   /* background-color: #b3aea6; */
   backdrop-filter: blur(60px);
   padding: 2%;
+  box-sizing: border-box;
+}
+
+.grid article .content {
   box-sizing: border-box;
 }
 

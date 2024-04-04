@@ -160,7 +160,7 @@ header {
   margin: 40vh 0 25vh 0;
 }
 .technologies {
-  margin: 0vh 0 25vh 0;
+  margin: 0vh 0 0vh 0;
 }
 .projets {
   margin: 0vh 0 25vh 0;
