@@ -301,7 +301,7 @@ nav {
   padding: 20px 5px;
   position: relative;
   background-color: transparent;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
 }
 .menu-mobile {
   display: none;
