@@ -182,7 +182,7 @@ h1 {
   grid-template-rows: repeat(4, 0.6fr);
   grid-gap: 10px;
   /* animation */
-  background: url("../assets/img/cinq.png");
+  background: url("../assets/img/ball.png"), url("../assets/img/six.png");
   background-repeat: no-repeat;
   background-size: 50% 50%;
   -webkit-animation: animatedBackground 20s ease infinite;
@@ -191,10 +191,10 @@ h1 {
 }
 @keyframes animatedBackground {
   0% {
-    background-position: -5% -15%;
+    background-position: -5% -35%;
   }
   10% {
-    background-position: 40% 15%;
+    background-position: 90% 25%;
   }
   20% {
     background-position: 155% 30%;
@@ -203,7 +203,7 @@ h1 {
     background-position: 95% 50%;
   }
   50% {
-    background-position: -90% 70%;
+    background-position: -90% 20%;
   }
   75% {
     background-position: 120% 90%;
