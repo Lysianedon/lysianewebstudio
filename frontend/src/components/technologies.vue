@@ -167,7 +167,6 @@ section {
   margin: 0;
   width: 100%;
   overflow-x: hidden;
-  backdrop-filter: blur(90px);
 }
 h1 {
   text-align: center;
@@ -184,14 +183,17 @@ h1 {
   /* animation */
   background: url("../assets/img/cinq.png");
   background-repeat: no-repeat;
-  background-size: 40% 40%;
-  -webkit-animation: animatedBackground 40s ease infinite;
-  -moz-animation: animatedBackground 40s ease infinite;
-  animation: animatedBackground 40s ease infinite;
+  background-size: 50% 50%;
+  -webkit-animation: animatedBackground 20s ease infinite;
+  -moz-animation: animatedBackground 20s ease infinite;
+  animation: animatedBackground 20s ease infinite;
 }
 @keyframes animatedBackground {
   0% {
     background-position: -5% -15%;
+  }
+  10% {
+    background-position: 40% 15%;
   }
   20% {
     background-position: 155% 30%;
@@ -232,7 +234,6 @@ h1 {
 .grid article .description {
   padding: 0% 2%;
   line-height: 140%;
-  /* background: white; */
   /* fix transition below */
   transition: background 1s ease;
   color: rgb(104, 104, 104);
@@ -323,6 +324,33 @@ h1 {
   margin: 2%;
 }
 
+@media (max-width: 900px) {
+  .grid article {
+    grid-column: 1/7 !important;
+  }
+  .grid article .content img {
+    min-width: 75px;
+    max-width: 15% !important;
+  }
+  .grid .art-1 {
+    grid-row: 1/2;
+  }
+  .grid .art-2 {
+    grid-row: 2/3;
+  }
+  .grid .art-3 {
+    grid-row: 3/4;
+  }
+  .grid .art-4 {
+    grid-row: 4/5;
+  }
+  .grid .art-5 {
+    grid-row: 5/6;
+  }
+  .grid .art-6 {
+    grid-row: 6/7;
+  }
+}
 @media (max-width: 768px) {
   h1 {
     font-size: 3.5em;
