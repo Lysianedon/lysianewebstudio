@@ -36,7 +36,7 @@
           >
         </div>
         <div class="description">
-          <h5>Frameworks et librairies Frontend principales: vue, react</h5>
+          <h5> <span>Frameworks et librairies Frontend principales:</span> Vue, React</h5>
           <p>Dotée d'une expertise approfondie en Vue 2 et 3, avec une solide compétence en React pour le développement d'applications front-end réactives et modernes.</p>
         </div>
       </article>
@@ -69,7 +69,7 @@
           >
         </div>
         <div class="description">
-          <h5>Autres librairies frontend : pinia, vuetify, buefy, bulma, GSAP, Vite etc:</h5>
+          <h5> <span>Autres librairies frontend :</span> pinia, vuetify, buefy, bulma, GSAP, Vite</h5>
           <p>J'utilise une gamme de librairies front-end avancées pour concevoir des interfaces utilisateur complexes, offrant ainsi une expérience optimisée, intuitive et fluide. </p>
         </div>
       </article>
@@ -85,7 +85,7 @@
           >
         </div>
         <div class="description">
-          <h5>4: LG back : Javascript, Java</h5>
+          <h5> <span>Côté Backend :</span> Javascript, Java</h5>
           <p>Capable de naviguer entre les paradigmes de programmation, j'aligne mon approche sur les objectifs du projet, optant pour la programmation orientée objet en Java ou JavaScript pour créer des solutions backend robustes et adaptées.</p>
         </div>
       </article>
@@ -126,7 +126,7 @@
           >
         </div>
         <div class="description">
-          <h5>5: environnement et frameworks: Node.js, Express.js, Docker, Github, Gitlab</h5>
+          <h5> <span>Environnements et frameworks Backend:</span> Node.js, Express.js, Docker, Github, Gitlab</h5>
           <p>Je gère l'environnement de développement complet, du serveur avec Node.js à la conteneurisation avec Docker, appuyé par une maîtrise des outils de versionning comme GitHub et GitLab.</p>
         </div>
       </article>
@@ -150,8 +150,8 @@
           >
         </div>
         <div class="description">
-          <h5>Base de données et ORM: MongoDB, Sequelize, MariaDB, Prisma</h5>
-          <p>Je gère efficacement les données en maîtrisant divers systèmes de gestion de bases de données comme MongoDB et MariaDB, ainsi que des ORM tels que Sequelize et Prisma, optimisant l'accès et la manipulation des données pour des applications performantes.</p>
+          <h5><span>Base de données et ORM:</span> MongoDB, Sequelize, MariaDB, Prisma</h5>
+          <p>Pour gérer efficacement l'accès et la manipulation des données pour des applications performantes.</p>
         </div>
       </article>
     </div>
@@ -167,6 +167,7 @@ section {
   margin: 0;
   width: 100%;
   overflow-x: hidden;
+  backdrop-filter: blur(90px);
 }
 h1 {
   text-align: center;
@@ -176,18 +177,48 @@ h1 {
 .grid {
   width: 80%;
   display: grid;
-  margin: auto;
+  margin: 0 auto;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 20vh);
-  grid-template-rows: repeat(6, 0.6fr);
-  /* background: url("../assets/logos/angular-logo.png"); */
+  grid-template-rows: repeat(4, 0.6fr);
   grid-gap: 10px;
+  /* animation */
+  background: url("../assets/img/cinq.png");
+  background-repeat: no-repeat;
+  background-size: 40% 40%;
+  -webkit-animation: animatedBackground 40s ease infinite;
+  -moz-animation: animatedBackground 40s ease infinite;
+  animation: animatedBackground 40s ease infinite;
 }
+@keyframes animatedBackground {
+  0% {
+    background-position: -5% -15%;
+  }
+  20% {
+    background-position: 155% 30%;
+  }
+  35% {
+    background-position: 95% 50%;
+  }
+  50% {
+    background-position: -90% 70%;
+  }
+  75% {
+    background-position: 120% 90%;
+  }
+  90% {
+    background-position: 80% 120%;
+  }
+  100% {
+    background-position: -60% 90%;
+  }
+}
+
 .grid article {
   border: 1px solid #b3aea66a;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  backdrop-filter: blur(95px);
 }
 
 .grid article .content {
@@ -199,11 +230,16 @@ h1 {
   flex-wrap: wrap;
 }
 .grid article .description {
-  padding: 0% 15% 0 2%;
-  background: white;
+  padding: 0% 2%;
+  line-height: 140%;
+  /* background: white; */
   /* fix transition below */
   transition: background 1s ease;
-  color: rgb(84, 84, 84);
+  color: rgb(104, 104, 104);
+}
+
+.grid article:hover {
+  border: 1px solid #b3aea69a;
 }
 .grid article .description:hover {
   color: rgb(43, 42, 42);
@@ -219,6 +255,11 @@ h1 {
   font-size: 1rem;
   font-family: "Playfair Display", serif;
   margin: 25px 0 0 0;
+  font-weight: bold;
+}
+
+.grid article h5 span {
+  font-size: 1.03rem;
 }
 .grid article p {
   font-family: "Playfair Display", serif;
@@ -289,76 +330,11 @@ h1 {
     width: 100%;
     margin: 0 0 9vh 0;
   }
-  .main-blocks {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-  .main-blocks h2 {
-    font-size: 2.5em;
-    width: 100%;
-  }
-  .frontend-block h2 {
-    margin: 0;
-    text-align: left;
-  }
-  .main-blocks h2 .line {
-    width: 100%;
-    display: inline-flex;
-    flex-grow: stretch;
-    border-top: 1px solid rgba(0, 0, 0, 0.723);
-  }
-  .backend-block h2 {
-    margin: 0;
-    text-align: right;
-  }
-  .sub-categories-container {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-  .sub-category {
-    width: 100%;
-    margin: 1rem 0;
-    text-align: center;
-  }
-  .sub-category h3 {
-    color: rgb(74, 71, 63);
-    font-size: 1.2em;
-  }
-  ul {
-    padding-left: 1em;
-    list-style-position: inside;
-  }
-
-  ul li {
-    font-size: 1.1rem;
-    line-height: 250%;
-  }
-  .divider {
-    width: 0;
-    margin: 0;
-  }
 }
 
 @media (max-width: 425px) {
   h1 {
     margin: 0 0 5vh 0;
-  }
-  .sub-categories-container {
-    flex-direction: column;
-  }
-  .main-blocks h2 {
-    font-size: 2em;
-    margin: 0;
-    text-align: center;
-  }
-  .main-blocks h2 .line {
-    display: none;
-  }
-  .sub-category h3 {
-    text-decoration: underline;
-    margin: 0;
   }
 }
 </style>
