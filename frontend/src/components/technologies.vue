@@ -1,60 +1,6 @@
 <template>
   <section>
     <h1>Technologies</h1>
-    <!-- <div class="frontend-block main-blocks">
-      <h2>FRONTEND <span class="line"></span></h2>
-      <div class="sub-categories-container">
-        <div class="sub-category">
-          <h3>Frameworks et libraries</h3>
-          <ul>
-            <li>Vue.js 2 et 3</li>
-            <li>React</li>
-            <li>Pinia</li>
-            <li>Vuetify</li>
-            <li>Buefy</li>
-            <li>Bulma</li>
-            <li>GSAP</li>
-          </ul>
-
-        </div>
-        <div class="sub-category">
-          <h3>Standards et outils</h3>
-          <ul>
-            <li> Webpack</li>
-            <li> Vite</li>
-            <li>HTML5</li>
-            <li> CSS3</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-    <div class="divider"></div>
-    <div class="backend-block main-blocks">
-      <h2>BACKEND <span class="line"></span></h2>
-      <div class="sub-categories-container">
-        <div class="sub-category">
-          <h3>Base de données et ORM</h3>
-          <ul>
-            <li>MongoDB</li>
-            <li>Sequelize</li>
-            <li>MariaDB</li>
-            <li>Prisma</li>
-          </ul>
-        </div>
-        <div class="sub-category">
-          <h3>Environments</h3>
-          <ul>
-            <li>Node.js</li>
-            <li>Express.js</li>
-            <li>Docker</li>
-          </ul>
-
-        </div>
-      </div>
-    </div> -->
-
-    <!-------------------------- NEW LAYOUT -------------------------->
 
     <div class="grid">
       <article class="art-1">
@@ -72,7 +18,10 @@
             alt="logo Javascript"
           >
         </div>
-        <p>Langages: HTML5, CSS3, Javascript</p>
+        <div class="description">
+          <h5><span class="bold">Langages</span>: HTML5, CSS3, Javascript:</h5>
+          <p> Je maîtrise les langages fondamentaux du développement web, permettant de construire des sites dynamiques et responsives</p>
+        </div>
       </article>
       <article class="art-2">
         <div class="content">
@@ -86,7 +35,10 @@
             alt="logo reactjs"
           >
         </div>
-        <p>2: Frameworks et librairies Frontend principales: vue, react</p>
+        <div class="description">
+          <h5>Frameworks et librairies Frontend principales: vue, react</h5>
+          <p>Dotée d'une expertise approfondie en Vue 2 et 3, avec une solide compétence en React pour le développement d'applications front-end réactives et modernes.</p>
+        </div>
       </article>
 
       <article class="art-3">
@@ -116,7 +68,10 @@
             alt="logo vite"
           >
         </div>
-        <p>3: autres librairies frontend : pinia, vuetify, buefy, bulma, GSAP, Vite etc</p>
+        <div class="description">
+          <h5>Autres librairies frontend : pinia, vuetify, buefy, bulma, GSAP, Vite etc:</h5>
+          <p>J'utilise une gamme de librairies front-end avancées pour concevoir des interfaces utilisateur complexes, offrant ainsi une expérience optimisée, intuitive et fluide. </p>
+        </div>
       </article>
       <article class="art-4">
         <div class="content">
@@ -129,7 +84,10 @@
             alt="logo java"
           >
         </div>
-        <p>4: LG back : Javascript, Java</p>
+        <div class="description">
+          <h5>4: LG back : Javascript, Java</h5>
+          <p>Capable de naviguer entre les paradigmes de programmation, j'aligne mon approche sur les objectifs du projet, optant pour la programmation orientée objet en Java ou JavaScript pour créer des solutions backend robustes et adaptées.</p>
+        </div>
       </article>
 
       <article class="art-5">
@@ -167,7 +125,10 @@
             alt="logo gitlab"
           >
         </div>
-        <p>5: environnement et frameworks: Node.js, Express.js, Docker, Github, Gitlab</p>
+        <div class="description">
+          <h5>5: environnement et frameworks: Node.js, Express.js, Docker, Github, Gitlab</h5>
+          <p>Je gère l'environnement de développement complet, du serveur avec Node.js à la conteneurisation avec Docker, appuyé par une maîtrise des outils de versionning comme GitHub et GitLab.</p>
+        </div>
       </article>
       <article class="art-6">
         <div class="content">
@@ -188,7 +149,10 @@
             alt="logo prisma"
           >
         </div>
-        <p>6: BDD et ORM: MongoDB, Sequelize, MariaDB, Prisma</p>
+        <div class="description">
+          <h5>Base de données et ORM: MongoDB, Sequelize, MariaDB, Prisma</h5>
+          <p>Je gère efficacement les données en maîtrisant divers systèmes de gestion de bases de données comme MongoDB et MariaDB, ainsi que des ORM tels que Sequelize et Prisma, optimisant l'accès et la manipulation des données pour des applications performantes.</p>
+        </div>
       </article>
     </div>
   </section>
@@ -221,18 +185,44 @@ h1 {
 }
 .grid article {
   border: 1px solid #b3aea66a;
-  /* background-color: #b3aea6; */
-  backdrop-filter: blur(60px);
-  padding: 2%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .grid article .content {
+  padding: 2%;
   box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
-
+.grid article .description {
+  padding: 0% 15% 0 2%;
+  background: white;
+  /* fix transition below */
+  transition: background 1s ease;
+  color: rgb(84, 84, 84);
+}
+.grid article .description:hover {
+  color: rgb(43, 42, 42);
+  background: rgb(210, 198, 173);
+  background: linear-gradient(
+    175deg,
+    rgba(223, 211, 186, 0.091) 8%,
+    rgba(173, 143, 95, 0.05) 40%,
+    rgba(116, 119, 116, 0.223) 100%
+  );
+}
+.grid article h5 {
+  font-size: 1rem;
+  font-family: "Playfair Display", serif;
+  margin: 25px 0 0 0;
+}
 .grid article p {
-  align-self: flex-end;
+  font-family: "Playfair Display", serif;
+  font-size: 0.9rem;
 }
 
 .grid article .content img {
@@ -251,7 +241,6 @@ h1 {
 .grid .art-3 {
   grid-column: 1/7;
   grid-row: 2/3;
-  /* max-height: 15vh; */
 }
 .grid .art-4 {
   grid-column: 1/3;
@@ -278,7 +267,7 @@ h1 {
   margin: 3% 0;
 }
 .grid .art-3 .content img {
-  max-width: 11%;
+  max-width: 9%;
 }
 .grid .art-4 .content img {
   max-width: 45%;
@@ -286,6 +275,10 @@ h1 {
 }
 .grid .art-5 .content img {
   max-width: 12.5%;
+  margin: 2%;
+}
+.grid .art-6 .content img {
+  max-width: 12%;
   margin: 2%;
 }
 
