@@ -185,9 +185,9 @@ h1 {
   background: url("../assets/img/ball.png"), url("../assets/img/six.png");
   background-repeat: no-repeat;
   background-size: 50% 50%;
-  -webkit-animation: animatedBackground 20s ease infinite;
-  -moz-animation: animatedBackground 20s ease infinite;
-  animation: animatedBackground 20s ease infinite;
+  -webkit-animation: animatedBackground 15s ease infinite;
+  -moz-animation: animatedBackground 15s ease infinite;
+  animation: animatedBackground 15s ease infinite;
 }
 @keyframes animatedBackground {
   0% {
@@ -196,23 +196,29 @@ h1 {
   10% {
     background-position: 90% 25%;
   }
-  20% {
-    background-position: 155% 30%;
+  15% {
+    background-position: 60% 95%;
   }
-  35% {
-    background-position: 95% 50%;
+  20% {
+    background-position: 2% 10%;
+  }
+  30% {
+    background-position: 35% 100%;
+  }
+  40% {
+    background-position: 1% 20%;
   }
   50% {
-    background-position: -90% 20%;
+    background-position: 40% 35%;
   }
   75% {
-    background-position: 120% 90%;
+    background-position: 110% 90%;
   }
   90% {
-    background-position: 80% 120%;
+    background-position: 80% 20%;
   }
   100% {
-    background-position: -60% 90%;
+    background-position: 1% 100%;
   }
 }
 
