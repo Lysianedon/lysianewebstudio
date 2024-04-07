@@ -160,7 +160,7 @@
         <div class="description">
 
           <h5>Outils de développement, CI/CD et Conteneurisation: Docker, Github, Gitlab</h5>
-          <p></p>
+          <p>Je maîtrise les technologies de conteneurisation telles que Docker, et les plateformes de gestion de versions et d'intégration continue comme GitHub et GitLab.</p>
         </div>
       </article>
     </div>
