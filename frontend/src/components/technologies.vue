@@ -329,11 +329,12 @@ h1 {
 .grid .art-6 .content img {
   max-width: 25%;
   max-height: 60%;
-  margin: 1% 0 0 0;
+  margin: 3% 0 0 0;
 }
 .grid .art-7 .content img {
   max-width: 25%;
   max-height: 60%;
+  margin: 3% 0 0 0;
 }
 
 /*-------------------- RESPONSIVE -------------------- */
