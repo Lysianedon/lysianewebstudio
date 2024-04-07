@@ -328,6 +328,7 @@ h1 {
 }
 .grid .art-6 .content img {
   max-width: 25%;
+  max-height: 60%;
   margin: 1% 0 0 0;
 }
 .grid .art-7 .content img {
@@ -335,6 +336,7 @@ h1 {
   max-height: 60%;
 }
 
+/*-------------------- RESPONSIVE -------------------- */
 @media (max-width: 900px) {
   .grid article {
     grid-column: 1/7 !important;
@@ -360,6 +362,12 @@ h1 {
   }
   .grid .art-6 {
     grid-row: 6/7;
+  }
+  .grid .art-1 .content img,
+  .grid .art-6 .content img,
+  .grid .art-7 .content img,
+  .grid .art-2 .content img {
+    max-height: 90%;
   }
   .grid .art-5 .content img {
     max-width: 24%;
