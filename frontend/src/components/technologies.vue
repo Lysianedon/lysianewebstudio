@@ -233,8 +233,6 @@ h1 {
 .grid article .description {
   padding: 0% 2%;
   line-height: 140%;
-  /* fix transition below */
-  transition: background 1s ease;
   color: rgb(104, 104, 104);
 }
 
@@ -329,7 +327,7 @@ h1 {
   max-height: 50%;
 }
 .grid .art-6 .content img {
-  max-width: 20%;
+  max-width: 25%;
   margin: 1% 0 0 0;
 }
 .grid .art-7 .content img {
@@ -362,6 +360,10 @@ h1 {
   }
   .grid .art-6 {
     grid-row: 6/7;
+  }
+  .grid .art-5 .content img {
+    max-width: 24%;
+    max-height: 100%;
   }
 }
 @media (max-width: 768px) {
