@@ -221,7 +221,7 @@ p:nth-of-type(2) {
 }
 
 form {
-  width: 80%;
+  width: 60%;
   max-width: 800px;
   margin: auto;
 }
@@ -284,7 +284,7 @@ textarea:focus {
   background-color: #555;
 }
 .disabled-btn {
-  background-color: #737171;
+  background-color: #a7a3a3;
 }
 
 /* SOCIAL LINKS */
@@ -333,10 +333,14 @@ textarea:focus {
   margin: 0 0 3px 15px;
   font-size: 1.1rem;
 }
-@media (max-width: 768px) {
+/*-------------------- RESPONSIVE -------------------- */
+
+@media (max-width: 900px) {
   form {
     width: 90%;
   }
+}
+@media (max-width: 768px) {
   p:nth-of-type(2) {
     margin: 0 0 10vh 0;
   }
