@@ -44,6 +44,10 @@
       <article class="art-3">
         <div class="content">
           <img
+            src="../assets/logos/angular-logo.png"
+            alt="logo angular"
+          >
+          <img
             src="../assets/logos/pinia-logo.png"
             alt="logo Javascript"
           >
@@ -93,10 +97,6 @@
       <article class="art-5">
         <div class="content">
           <img
-            src="../assets/logos/angular-logo.png"
-            alt="logo angular"
-          >
-          <img
             src="../assets/logos/spring-logo.png"
             alt="logo spring"
           >
@@ -112,21 +112,9 @@
             src="../assets/logos/express-logo.png"
             alt="logo express"
           >
-          <img
-            src="../assets/logos/docker-logo.png"
-            alt="logo docker"
-          >
-          <img
-            src="../assets/logos/github-logo.png"
-            alt="logo github"
-          >
-          <img
-            src="../assets/logos/gitlab-logo.png"
-            alt="logo gitlab"
-          >
         </div>
         <div class="description">
-          <h5> <span>Environnements et frameworks Backend:</span> Node.js, Express.js, Docker, Github, Gitlab</h5>
+          <h5> <span>Environnements et frameworks Backend:</span></h5>
           <p>Je gère l'environnement de développement complet, du serveur avec Node.js à la conteneurisation avec Docker, appuyé par une maîtrise des outils de versionning comme GitHub et GitLab.</p>
         </div>
       </article>
@@ -154,6 +142,27 @@
           <p>Pour gérer efficacement l'accès et la manipulation des données pour des applications performantes.</p>
         </div>
       </article>
+      <article class="art-7">
+        <div class="content">
+          <img
+            src="../assets/logos/docker-logo.png"
+            alt="logo docker"
+          >
+          <img
+            src="../assets/logos/github-logo.png"
+            alt="logo github"
+          >
+          <img
+            src="../assets/logos/gitlab-logo.png"
+            alt="logo gitlab"
+          >
+        </div>
+        <div class="description">
+
+          <h5>Outils de développement, CI/CD et Conteneurisation: Docker, Github, Gitlab</h5>
+          <p></p>
+        </div>
+      </article>
     </div>
   </section>
 </template>
@@ -174,51 +183,34 @@ h1 {
 }
 /* GRID */
 .grid {
-  width: 80%;
+  width: 70%;
   max-width: 1500px;
   display: grid;
   margin: 0 auto;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 0.6fr);
+  grid-template-columns: repeat(auto, 1fr);
+  grid-template-rows: repeat(auto, 0.5fr);
   grid-gap: 10px;
   /* animation */
   background: url("../assets/img/ball.png"), url("../assets/img/six.png");
   background-repeat: no-repeat;
-  background-size: 50% 50%;
-  -webkit-animation: animatedBackground 15s ease infinite;
-  -moz-animation: animatedBackground 15s ease infinite;
-  animation: animatedBackground 15s ease infinite;
+  background-size: 55% 55%;
+  -webkit-animation: animatedBackground 10s ease infinite;
+  -moz-animation: animatedBackground 10s ease infinite;
+  animation: animatedBackground 10s ease infinite;
 }
 @keyframes animatedBackground {
-  0% {
-    background-position: -5% -35%;
+  0%,
+  100% {
+    background-position: center -5%;
   }
-  10% {
-    background-position: 90% 25%;
-  }
-  15% {
-    background-position: 60% 95%;
-  }
-  20% {
-    background-position: 2% 10%;
-  }
-  30% {
-    background-position: 35% 100%;
-  }
-  40% {
-    background-position: 1% 20%;
+  25% {
+    background-position: right center;
   }
   50% {
-    background-position: 40% 35%;
+    background-position: center 115%;
   }
   75% {
-    background-position: 110% 90%;
-  }
-  90% {
-    background-position: 80% 20%;
-  }
-  100% {
-    background-position: 1% 100%;
+    background-position: left center;
   }
 }
 
@@ -275,7 +267,7 @@ h1 {
 }
 
 .grid article .content img {
-  max-width: 15%;
+  max-width: 12%;
   margin: 0 2%;
 }
 
@@ -300,7 +292,11 @@ h1 {
   grid-row: 3/4;
 }
 .grid .art-6 {
-  grid-column: 1/7;
+  grid-column: 1/4;
+  grid-row: 4/5;
+}
+.grid .art-7 {
+  grid-column: 4/7;
   grid-row: 4/5;
 }
 
@@ -310,25 +306,35 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.grid .art-1 .content img,
+.grid .art-1 .content img {
+  margin: 3% 0 0 0;
+  max-width: 25%;
+  max-height: 60%;
+}
 .grid .art-2 .content img {
+  margin: 3% 0 0 0;
   max-width: 20%;
-  margin: 3% 0;
+  max-height: 60%;
 }
 .grid .art-3 .content img {
   max-width: 9%;
 }
 .grid .art-4 .content img {
   max-width: 45%;
-  margin: 3% 1.5%;
+  max-height: 55%;
+  margin: 3% 0% 0% 0%;
 }
 .grid .art-5 .content img {
-  max-width: 12.5%;
-  margin: 2%;
+  max-width: 17%;
+  max-height: 50%;
 }
 .grid .art-6 .content img {
-  max-width: 12%;
-  margin: 2%;
+  max-width: 20%;
+  margin: 1% 0 0 0;
+}
+.grid .art-7 .content img {
+  max-width: 25%;
+  max-height: 60%;
 }
 
 @media (max-width: 900px) {
