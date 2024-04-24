@@ -184,7 +184,7 @@ h1 {
 /* GRID */
 .grid {
   width: 70%;
-  max-width: 1500px;
+  max-width: 1050px;
   display: grid;
   margin: 0 auto;
   grid-template-columns: repeat(auto, 1fr);

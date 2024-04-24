@@ -15,7 +15,7 @@ section {
   padding: 0 2vw;
 }
 h1 {
-  font-size: clamp(85px, 9vw, 1500px);
+  font-size: clamp(85px, 8.5vw, 1200px);
   font-weight: 500;
   color: var(--custom-grey);
 }

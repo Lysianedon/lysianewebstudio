@@ -48,7 +48,8 @@ h1 {
 }
 .presentation {
   width: 60vw;
-  margin: 27vh 0 0vh 0;
+  max-width: 900px;
+  margin: 27vh 0 0 0;
 }
 .presentation h2 {
   text-align: justify;
